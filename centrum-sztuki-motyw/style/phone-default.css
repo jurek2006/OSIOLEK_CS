@@ -1,40 +1,90 @@
 @charset "utf-8";
-/*
-Theme Name: Centrum Sztuki 0.3.3.2
-Author: Jurek Skowron
-Author URI: http://jurekskowron.pl
-Description: Motyw dla strony Centrum Sztuki kultura.olawa.pl na wordpressie. Motyw potomny od 0.3.3. Będący rozwinięciem 0.3.3.1
+/* Styl motywu Centrum-sztuki dla telefonów - domyślny */
 
-Version: 0.3.3.2
+/*Podstawowy pomarańczowy - FF9933 = rgba(255, 153, 51, 1)*/
+/*Ciemniejszy pomarańczowy - EE4724*/
+/*Ciemnoszary kolor nagłówka - #333333;*/
+/*Jaśniejszy szary - kolor tła podmenu głównego - #666;*/
 
-W wersji 0.3.3.1 wprowadzono:
-- narzędzie do importu projekcji filmowych z VT (wymaga pliku XMLGetter.php - jego położenie zdefiniowane w visualticket_import.js)
+/*----------- apply a natural box layout model to all elements --------------*/
+* {box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;  }
 
-W wersji 0.3.3:
-- scalono zmiany motywów potomnych od 0.3.2.1 do 0.3.2.3 do jednego motywu głównego
+/*-----Prevents iPhone from resizing in landscape mode -----*/
+html {-webkit-text-size-adjust: none; }
 
-W wersji 0.3.2.3 wprowadzono:
-- drobne poprawki. 
-- naprawiono opcję dodawania stałej treści nad stroną "Edukacja" z poprzedniej wersji
+/*-------------------------------------------------------------------------------------*/
+body{
+	font-family: 'Magra', sans-serif;
+	font-weight:400;	/*also loaded 700 for bold*/
+	color: #333;
+}
 
-W wersji 0.3.2.2 wprowadzono:
-- hurtowe dodawanie projekcji
+a{
+	color: #EE4724;
+}
 
-W wersji 0.3.2 wprowadzono:
-- obsługę zapowiedzi filmowych wraz z zarządzaniem nimi w kino/zarządzanie
+	/*----NAGŁÓWEK STRONY---*/
+	div#header-wrap{
+		background-color:#333333;
+		width:100%;
+		z-index: 10;
+		border-top: 4px solid #FF9933;
+	}
+	
+	/*----NAWIGACJA---*/
+	div#nav-wrap{
+		background-color:#FF9933;
+		background: -webkit-linear-gradient(#FF9933, #CC3333); /* For Safari 5.1 to 6.0 */
+  		background: -o-linear-gradient(#FF9933, #CC3333); /* For Opera 11.1 to 12.0 */
+  		background: -moz-linear-gradient(#FF9933, #CC3333); /* For Firefox 3.6 to 15 */
+  		background: linear-gradient(#FF9933, #CC3333); /* Standard syntax */
+		width:100%;
+	}
+	
+	/*----STOPKA---*/
+	div#footer-wrap{
+		background-color:#B3B3B3;
+		color: #333333;
+		width:100%;
+	}
+	
+	
+	/*----NAWIGACJA - menu dolne --*/
+	nav ul#menu-dolne li a{
+		text-decoration:none;
+		color: #333333;
+		display:block;
+	}
+	
+	nav ul#menu-dolne li:hover{
+		background-color: #FF9933;
+	}
+
+	/*----- LISTA WYDARZEŃ -----*/
+	article.wydarzenie h1 a{
+		text-decoration:none;
+		color: #333333;
+		font-weight: 700;
+		font-size: 110%;
+		display:block;
+	}
 
 
-Template: centrum-sztuki-0.3.3
-License: @Jurek Skowron  
-*/
 
-/*WSZYSTKIE STYLE WYGLĄDU ZNAJDUJĄ SIĘ W FOLDERZE MOTYWU/STYLE:
-- medium768.css - standardowy styl - ustawiony na szerokość 768px
-- desktop.css - nadpisuje domyślne szerokość ekranu większa od 1141px*/
+table.tabela_kursow td{
+	background-color:#999;
+	border:thick;
+}
+	
 
-/*-------------0.3.3.1------------------*/
+/* ----- OTHER STUFF ----*/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-/*Style niezbędne do "scalenia" przy tworzeniu nowej wersji motywu nadrzędnego*/
+/*Style scalone przy łączeniu 0.3.3 i 0.3.3.2 do 0.3.4*/
 /*----------------------------------------------------------------------------*/
 /*jQuery UI - klasa ukrywająca przycisk zamykania okna*/
 .no-close .ui-dialog-titlebar-close {
