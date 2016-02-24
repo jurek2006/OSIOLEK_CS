@@ -1,93 +1,11 @@
 ﻿<?php
 /*
 Template Name: Wydarzenia
-Description: Obsługuje stronę listy wydarzeń stylu Centrum Sztuki w Oławie korzystając z pods wydarzenia oraz pods kategorie (dla kategorii wydarzeń).
+Description: Obsługuje stronę listy wydarzeń stylu Centrum Sztuki w Oławie korzystając z pods wydarzenia. (Usunięto obsługę kategorii wydarzeń)
 Pojedyncze wydarzenie obsługiwane są przez wydarzenia_single.php
 */
 
 get_header(); ?>
-
-<!--Fragment dla listy wydarzeń - dodaje pasek wyświetlający jaka jest wybrana kategoria i umożliwiający jej zmianę -->
-
-<?php
-            
-
-			if (!is_single()){
-			//Na wszelki wypadek sprawdza czy to jest lista wydarzeń
-				
-				//pobranie listy zdefiniowane_kategorie_wydarzen z pods kategorie
-				//lista ta posłuży do sprawdzenia, czy wybrano którąś ze zdefiniowanych kategorii wydarzeń
-				//jeśli nie, traktowane jest to, jako wyświetlanie wszystkich wydarzeń
-				//jeśli tak - tworzony jest pasek wyświetlający wybraną kategorię i umożliwiający jej zmianę
-				$slug = pods_v('last','url');
-				$zdefiniowane_kategorie_wydarzen = array();
-				//tabela przechowująca nazwy kategorii, żeby wyświetlać je, zamiast slug'a
-				$zdefiniowane_kategorie_wydarzen_nazwy = array();
-				
-				$params = array( 'limit' => -1);
-				$pods1 = pods( 'kategorie', $params );
-				if ( $pods1->total() > 0 ) {
-					//jeśli znaleziono wydarzenia spełniające określone kryteria - następuje wyświetlenie ich listy
-                    while ( $pods1->fetch() ) {
-						$slug = $pods1->display('slug');
-						$zdefiniowane_kategorie_wydarzen[] = $slug;
-						$nazwa = $pods1->display('name');
-						$zdefiniowane_kategorie_wydarzen_nazwy[] = $nazwa;
-					}
-				}
-				
-				
-				$slug = pods_v('last','url'); //slug strony
-				if(in_array($slug,$zdefiniowane_kategorie_wydarzen)){
-					//'Wybrana kategoria: '.$slug;
-					
-					$params = array( 	'limit' => -1,
-									'where'   => '((wydarzenie_kategorie.slug LIKE "%'.$slug.'%")AND((data_i_godzina_wydarzenia.meta_value > NOW()) OR (dzien_zakonczenia.meta_value > NOW())))',
-									'orderby'  => 'data_i_godzina_wydarzenia.meta_value');
-									
-					//Pobranie nazwy wybranej kategorii - sprawdzamy jaki index w $zdefiniowane_kategorie_kursow ma wybrany $slug
-					//A jako, że $zdefiniowane_kategorie_wydarzen_nazwy ma tą samą kolejność to pobierany z niego pole o tym indexie
-					$nazwa_kategorii = $zdefiniowane_kategorie_wydarzen_nazwy[array_search($slug, $zdefiniowane_kategorie_wydarzen)];
-				}
-				else{
-					//Wyświetlanie wszystkich wydarzeń
-					
-					$params = array( 	'limit' => -1,
-									'where'   => '(data_i_godzina_wydarzenia.meta_value > NOW()) OR (dzien_zakonczenia.meta_value > NOW())',
-									'orderby'  => 'data_i_godzina_wydarzenia.meta_value');
-									
-					//podstawienie pod slug na potrzeby wyświetlenia na pasku zmiany kategorii				
-					$nazwa_kategorii = 'wszystkie'; 
-				}
-				
-				//Stworzenie paska
-					?>
-                    	<div id="kategorie-wrap">
-                        	<div id="kategorie-container">
-                            	                          
-                                <?php
-								$menu_class = 'category-nav'; //standardowa (niemobilna klasa dla menu kategorii)
-								if ( !wp_is_mobile() ) {
-								//Dla standardowej - niemobilnej przeglądarki
-									
-									echo '<p>Wyświetlane wydarzenia: '.$nazwa_kategorii.'  </p>'; 
-								}//if ( !wp_is_mobile() )
-								else {
-								//Dla przeglądarki mobilnej
-									$menu_class = 'category-nav-mobile'; //mobilna klasa dla menu kategorii
-								}//else - if ( wp_is_mobile() )
-                                //Dodatkowe menu zmiany kategorii wydarzenia
-                                wp_nav_menu( array(
-                                        'theme_location' => 'category-navigation',
-                                        'container' => 'nav',
-                                        'menu_class' => $menu_class)
-                                ); ?>
-                                &nbsp;
-                            </div><!--#kategorie-container-->
-                        </div><!--#kategorie-wrap-->
-					<?php
-			}//(!is_single())
-?>
 
 <div id="main-wrap" class="container">
 	<div id="main-container" class="clearfix">
@@ -98,9 +16,10 @@ get_header(); ?>
 			//Na wszelki wypadek sprawdza czy to jest lista wydarzeń
 				
 
-                
-                //get pods object
-				//wczytuje $params zdefiniowane powyżej (w miejscu tworzenia paska kategorii)
+                $params = array(    'limit' => -1,
+                                    'where'   => '(data_i_godzina_wydarzenia.meta_value > NOW()) OR (dzien_zakonczenia.meta_value > NOW())',
+                                    'orderby'  => 'data_i_godzina_wydarzenia.meta_value');
+
 				$pods = pods( 'wydarzenia', $params );
                 //loop through records
                 if ( $pods->total() > 0 ) {
