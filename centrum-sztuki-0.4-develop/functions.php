@@ -99,7 +99,12 @@
 		wp_enqueue_style( 'reset', get_template_directory_uri().'/style/reset.css' );
 		// wp_enqueue_style( 'medium768', get_template_directory_uri().'/style/medium768.css' ); 
 		// wp_enqueue_style( 'desktop', get_template_directory_uri().'/style/desktop.css' ); 
+
+		// styl bootstrap:
 		wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/css/bootstrap.css' );
+
+		// styl będący moją modyfikacją bootstrap:
+		wp_enqueue_style( 'moj_bootstrap', get_template_directory_uri().'/css/moj_bootstrap.css' );
 
 	}
 	add_action( 'wp_enqueue_scripts', 'centrumSztuki_enqueue_style' );

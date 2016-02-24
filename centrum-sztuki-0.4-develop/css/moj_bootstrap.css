@@ -1,0 +1,8 @@
+/*Plik stylów wczytywany po bootstrapowym - Wczytywany po bootstrap.css*/
+
+/*Użycie czcionki Magra*/
+body{
+	font-family: 'Magra', sans-serif;
+	font-weight:400;	/*also loaded 700 for bold*/
+	color: #333;
+}

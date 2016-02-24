@@ -10,6 +10,8 @@ get_header(); ?>
 <!--Fragment dla listy wydarzeń - dodaje pasek wyświetlający jaka jest wybrana kategoria i umożliwiający jej zmianę -->
 
 <?php
+            
+
 			if (!is_single()){
 			//Na wszelki wypadek sprawdza czy to jest lista wydarzeń
 				
