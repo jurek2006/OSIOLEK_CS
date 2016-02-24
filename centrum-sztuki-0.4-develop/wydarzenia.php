@@ -89,7 +89,7 @@ get_header(); ?>
 			}//(!is_single())
 ?>
 
-<div id="main-wrap">
+<div id="main-wrap" class="container">
 	<div id="main-container" class="clearfix">
     
     	<section id="content-container" class="column-9">

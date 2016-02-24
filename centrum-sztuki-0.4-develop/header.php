@@ -72,7 +72,7 @@
 
 <body> 
 
-<div id="header-wrap">
+<div id="header-wrap" class="container">
         	<header class="clearfix">
             	<a href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/style/logo_pegaz_header.png" alt="Centrum Sztuki w Oławie" /></a> 
                
