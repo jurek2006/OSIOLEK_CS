@@ -95,8 +95,8 @@
 	// wczytanie standardowych stylów CSS - wczytywanych na początku działania strony
 	function centrumSztuki_enqueue_style() {
 		wp_enqueue_style( 'reset', get_template_directory_uri().'/style/reset.css' );
-		wp_enqueue_style( 'medium768', get_template_directory_uri().'/style/medium768.css' ); 
-		wp_enqueue_style( 'desktop', get_template_directory_uri().'/style/desktop.css' ); 
+		// wp_enqueue_style( 'medium768', get_template_directory_uri().'/style/medium768.css' ); 
+		// wp_enqueue_style( 'desktop', get_template_directory_uri().'/style/desktop.css' ); 
 	}
 	add_action( 'wp_enqueue_scripts', 'centrumSztuki_enqueue_style' );
  
