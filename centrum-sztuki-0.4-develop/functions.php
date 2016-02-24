@@ -56,8 +56,6 @@
 	//wystarczającym do wyświetlenia strony Import projekcji i jeśli jest na tej stronie
 	//a więc szablon aktualnej strony to 
 	function add_my_script() {
-		//spolszczenie datepicker z jQueryUI
-		//wp_register_script('datepicker_pl', get_stylesheet_directory_uri().'/visualticket_import/datepicker-pl.js', array( 'jquery' ));
 
 		//mój skrypt importu terminów-projekcji z VisualTicket
 		wp_register_script('visualticket_import', get_stylesheet_directory_uri().'/visualticket_import/visualticket_import.js', array( 'jquery' ));
@@ -65,6 +63,10 @@
 			//wp_enqueue_script('datepicker_pl');
 			wp_enqueue_script('visualticket_import');
 		}
+
+		//dołączenie skryptu bootstrap'a
+		wp_register_script('bootstrap_js', get_stylesheet_directory_uri().'/js/bootstrap.js', array( 'jquery' ));
+		wp_enqueue_script('bootstrap_js');
 	}  
 	add_action( 'wp_enqueue_scripts', 'add_my_script' );
 
@@ -97,6 +99,8 @@
 		wp_enqueue_style( 'reset', get_template_directory_uri().'/style/reset.css' );
 		// wp_enqueue_style( 'medium768', get_template_directory_uri().'/style/medium768.css' ); 
 		// wp_enqueue_style( 'desktop', get_template_directory_uri().'/style/desktop.css' ); 
+		wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/css/bootstrap.css' );
+
 	}
 	add_action( 'wp_enqueue_scripts', 'centrumSztuki_enqueue_style' );
  
