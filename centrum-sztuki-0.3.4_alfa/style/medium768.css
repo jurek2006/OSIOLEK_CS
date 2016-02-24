@@ -1558,6 +1558,121 @@ table.tabela_kursow td{
 		display:none;
 	}
 
+/*Style scalone przy łączeniu 0.3.3 i 0.3.3.2 do 0.3.4*/
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*jQuery UI - klasa ukrywająca przycisk zamykania okna*/
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+/*-------------Importowanie projekcji (import-projekcji.php)------------------*/
+/*styl oznaczający rubrykę tabeli w której znaleziono błąd*/
+
+/*klasy tabeli #filmy*/
+
+#filmy td.bladDanych{
+	background: rgba(168, 0, 0, 0.4);
+}
+
+#filmy tr.zablokowane{
+	background-color: #CCCCCC;
+}
+
+/*klasy tabeli #dodajProjekcje*/
+
+/*wiersz w tabeli, jeśli jest to projekcja zapisana już na www*/
+#dodajProjekcje th{
+	background-color: #999;
+	color: #FFF;
+}
+
+#dodajProjekcje tr.naglowekDnia{
+	background-color: #333;
+	color: #FFF;
+}
+
+/*wiersz w tabeli, jeśli jest to projekcja zapisana już na www*/
+#dodajProjekcje tr.zapisane{
+	background-color: rgba(0,0,0,0.05);
+	color: #777;
+}
+
+/*wiersz w tabeli, jeśli wpisano dane - poprzez przypisanie filmu*/
+#dodajProjekcje tr.wypelnione, span.wypelnione{
+	background-color: rgba(63,128,0,0.2);
+}
+
+/*wiersz w tabeli, jeśli zmieniono w niej status publikacji*/
+#dodajProjekcje tr.zmienionaProjekcja, span.zmienionaProjekcja{
+	background-color: rgba(160,0,255,0.2);
+}
+
+/*wiersz w tabeli, jeśli jest zaznaczony (za pomocą checkbox)*/
+#dodajProjekcje tr.zaznaczone{
+	background-color: rgba(255,255,0,0.2);
+}
+
+#dodajProjekcje input{
+	border: none;
+}
+/*-------------0.3.3.2------------------*/
+
+/*-------------Archiwum wydarzeń - wydarzenia-archiwum.php------------------*/
+
+div.termin-archiwum{
+	/*kolor paska terminu przy wydarzeniu archiwalnym*/
+	background-color: #666666 !important;
+}
+
+div.wydarzenie-kategorie a.kategoria-archiwum{
+/*połączyć z div.wydarzenie-kategorie a{*/
+	/*kolor etykiet kategorii przy wydarzeniu archiwalnym*/
+	background-color: #666666;
+}
+
+/*-------------Pasek boczny dla wydarzeń archiwalnych - wydarzenia_single.php------------------*/
+div.termin-single-archiwum{
+	background-color: #666666 !important;
+
+}
+
+h2.wydarzenie_archiwalne{
+/*na podstawie div.termin-single a.kup-bilet*/
+	display:block;
+		color: #FFF;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-right:auto;
+		margin-left:auto;
+		width: 200px; /*RESPONSIVE-WIDTH - nie zrobiona wersja responsive*/
+		text-align:center;
+		text-decoration:none;
+		background-color: #FF9933;
+		font-size: 2em;
+		border: 2px solid #FFF;
+		padding: 5px 0;
+		border-radius: 10px;
+
+}
+
+/*-------------Styl dla paginacji dodwanej w pods------------------*/
+span.pods-pagination-advanced{
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 2m;
+	padding-bottom: 2em;
+	font-size: 1.1em;
+
+}
+
+span.pods-pagination-advanced a{
+	padding: 0.3em;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
 	/*----- KOLUMNY -----*/
 	
 	/*W pełnej szerokości strony column-9 ma szerokość 75% natomiast z powodu oszczędzania miejsca
