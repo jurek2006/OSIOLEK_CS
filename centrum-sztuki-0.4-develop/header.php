@@ -69,30 +69,8 @@
     
 	
 </head>
-<?php 
-//Jeśli jest to przeglądarka mobilna to do klas elementu body dodawana jest klasa 'is_mobile'
-$klasa_mobile = NULL;
-if (wp_is_mobile() ) {
-	$klasa_mobile = 'is_mobile';
-}//if (wp_is_mobile() )?>
 
-<body <?php body_class($klasa_mobile); ?>> 
-
-    <!-- Skrypt dodający klasę sticky do div#header-wrap - wyłączony jeśli przeglądarka zgłasza się jako mobilna -->
-    <?php if (!wp_is_mobile() ){
-			printf('<script>   
-						jQuery(window).scroll(function() {
-							if (jQuery(this).scrollTop() > 1){  
-								jQuery(\'div#header-wrap\').addClass("sticky");
-								
-							}
-							else{
-								jQuery(\'div#header-wrap\').removeClass("sticky");
-							}
-						});
-					</script>');
-		}//if (!wp_is_mobile() )
-    ?>
+<body> 
 
 <div id="header-wrap">
         	<header class="clearfix">
