@@ -78,7 +78,7 @@
 
 
 
-<nav class="navbar navbar-default" role="navigation"> 
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
 <!-- Brand and toggle get grouped for better mobile display --> 
 
 	<div class="container">
@@ -121,9 +121,11 @@
 
 
 
+
+
 <div id="header-wrap" class="container">
         	<header class="clearfix">
-            	<a href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/style/logo_pegaz_header.png" alt="Centrum Sztuki w Oławie" /></a> 
+            	
                
             </header>
 </div><!-- #header-wrap-->
