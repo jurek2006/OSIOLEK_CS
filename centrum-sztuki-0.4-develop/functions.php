@@ -147,6 +147,10 @@
 	
 
 	//Rejestracja menu
+	
+	// Register custom navigation walker - na potrzeby integracji navbar bootstrap'a z wordpressem
+    require_once('wp_bootstrap_navwalker.php');
+
 	function simpleblog_register_menus()
 	{
 		register_nav_menus(
@@ -237,6 +241,9 @@
 		if( is_singular() && get_option('thread-comments') && comments_open() )
 			wp_enqueue_script('comment-reply');
 	}//simpleblog_load_scripts
+
+	
+
 	
 	//---------------funkcje testowe - do usunięcia
 	
