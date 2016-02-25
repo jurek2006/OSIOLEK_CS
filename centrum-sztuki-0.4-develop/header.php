@@ -116,32 +116,6 @@
         	<header class="clearfix">
             	<a href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/style/logo_pegaz_header.png" alt="Centrum Sztuki w Oławie" /></a> 
                
-                
-                <?php 
-					 
-					//Górne menu nawigacyjne
-					
-					if (current_user_can( UPR_MENU_USER )){
-					//jeśli jest zalogowany użytkownik o uprawnieniach do publikacji postów (co najmniej Autor) to wyświetlane jest specjalne
-					//menu główne
-						wp_nav_menu( array(
-							'theme_location' => 'top-user-navigation',
-							'container' => 'nav',
-							'menu_class' => 'primary-nav')
-						);
-					}
-					else{
-					//jeśli nie jest zalogowany użytkownik o uprawnieniach do publikacji postów - wyświetlane jest standardowe menu główne
-						wp_nav_menu( array(
-							'theme_location' => 'top-navigation',
-							'container' => 'nav',
-							'menu_class' => 'primary-nav')
-						);
-					}
-					
-					
-				?>
-                <!--BUTTON UŻYWANY W MOBILE MENU <button class="nav-button">Toggle Button</button>-->
             </header>
 </div><!-- #header-wrap-->
 
