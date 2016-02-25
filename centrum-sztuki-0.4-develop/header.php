@@ -76,41 +76,45 @@
 		Na podstawie https://github.com/twittem/wp-bootstrap-navwalker/
  -->
 
-<nav class="navbar navbar-default" role="navigation"> 
-<!-- Brand and toggle get grouped for better mobile display --> 
-  <div class="navbar-header"> 
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> 
-      <span class="sr-only">Toggle navigation</span> 
-      <span class="icon-bar"></span> 
-      <span class="icon-bar"></span> 
-      <span class="icon-bar"></span> 
-    </button> 
-    <a class="navbar-brand" href="<?php bloginfo('url')?>"><?php bloginfo('name')?></a>
-  </div> 
-  <!-- Collect the nav links, forms, and other content for toggling --> 
-  <div class="collapse navbar-collapse navbar-ex1-collapse"> 
+<div class="container">
 
-		 <?php
-		 	$uzywane_menu = 'top-navigation';
-		 	if (current_user_can( UPR_MENU_USER )){
-				//jeśli jest zalogowany użytkownik o uprawnieniach do publikacji postów (co najmniej Autor) to wyświetlane jest specjalne menu główne zamiast standardowego
-				$uzywane_menu = 'top-user-navigation';
-			}
+	<nav class="navbar navbar-default col-xs-12" role="navigation"> 
+	<!-- Brand and toggle get grouped for better mobile display --> 
+	  <div class="navbar-header"> 
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> 
+	      <span class="sr-only">Toggle navigation</span> 
+	      <span class="icon-bar"></span> 
+	      <span class="icon-bar"></span> 
+	      <span class="icon-bar"></span> 
+	    </button> 
+	    <a class="navbar-brand" href="<?php bloginfo('url')?>"><?php bloginfo('name')?></a>
+	  </div> 
+	  <!-- Collect the nav links, forms, and other content for toggling --> 
+	  <div class="collapse navbar-collapse navbar-ex1-collapse"> 
 
-            wp_nav_menu( array(
-                'menu'              => $uzywane_menu,
-                'theme_location'    => $uzywane_menu,
-                'depth'             => 2,
-                'container'         => 'div',
-                'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
-        		'container_id'      => 'bs-example-navbar-collapse-1',
-                'menu_class'        => 'nav navbar-nav',
-                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                'walker'            => new wp_bootstrap_navwalker())
-            );
-        ?>
-  </div>
-</nav>
+			 <?php
+			 	$uzywane_menu = 'top-navigation';
+			 	if (current_user_can( UPR_MENU_USER )){
+					//jeśli jest zalogowany użytkownik o uprawnieniach do publikacji postów (co najmniej Autor) to wyświetlane jest specjalne menu główne zamiast standardowego
+					$uzywane_menu = 'top-user-navigation';
+				}
+
+	            wp_nav_menu( array(
+	                'menu'              => $uzywane_menu,
+	                'theme_location'    => $uzywane_menu,
+	                'depth'             => 2,
+	                'container'         => 'div',
+	                'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
+	        		'container_id'      => 'bs-example-navbar-collapse-1',
+	                'menu_class'        => 'nav navbar-nav',
+	                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+	                'walker'            => new wp_bootstrap_navwalker())
+	            );
+	        ?>
+	  </div>
+	</nav>
+
+</div>
 
 <div id="header-wrap" class="container">
         	<header class="clearfix">
