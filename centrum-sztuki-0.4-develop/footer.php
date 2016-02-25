@@ -16,14 +16,14 @@
 				?>
 
             <div id="kontakt" class="clearfix">
-                <h1>Centrum Sztuki w Oławie</h1>
-                <div>
+                <h1 class="col-xs-12">Centrum Sztuki w Oławie</h1>
+                <div class="col-xs-12 col-sm-6">
                     <h2>OWE Odra - Kino Odra</h2>
                     <p>ul. Młyńska 3, 55-200 Oława</p>
                     <p>tel. 71 735 15 75 , fax. 71 735 19 58</p> 
                     <p>sekretariat@kultura.olawa.pl</p>
                 </div>
-                <div>         	
+                <div class="col-xs-12 col-sm-6">         	
                     <h2>Ośrodek Kultury</h2>
                     <p>ul. 11 Listopada 27, 55 - 200 Oława</p>
                     <p>tel. 71 313 28 29 / 71 313 33 65</p>
