@@ -104,7 +104,7 @@
 		wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/css/bootstrap.css' );
 
 		// styl będący moją modyfikacją bootstrap:
-		wp_enqueue_style( 'moj_bootstrap', get_template_directory_uri().'/css/moj_bootstrap.css' );
+		wp_enqueue_style( 'style_cs', get_template_directory_uri().'/css/style_cs.css' );
 
 	}
 	add_action( 'wp_enqueue_scripts', 'centrumSztuki_enqueue_style' );

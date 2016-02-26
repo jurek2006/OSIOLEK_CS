@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/*Plik styl├│w wczytywany po bootstrapowym - Wczytywany po bootstrap.css*/
+/*U┼╝ycie czcionki Magra*/
+/* line 4, ../../sass/style_cs.scss */
+body {
+  font-family: 'Magra', sans-serif;
+  font-weight: 400;
+  /*also loaded 700 for bold*/
+  color: #333;
+}
+
+/*Wycentrowanie obrazka w carousel*/
+/* line 11, ../../sass/style_cs.scss */
+.carousel-inner img {
+  margin: auto;
+}
