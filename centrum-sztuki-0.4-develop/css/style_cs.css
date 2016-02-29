@@ -9,8 +9,23 @@ body {
   color: #333;
 }
 
+/* line 10, ../../sass/style_cs.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/*================WYDARZENIA==================================*/
+/*Klasa trzech wyr├│┼╝nik├│w ("k├│┼éek") na stronie wydarze┼ä*/
+/* line 17, ../../sass/style_cs.scss */
+.wyrozniki {
+  margin: 5em 0 5em 0;
+  text-align: center;
+}
+
 /*Wycentrowanie obrazka w carousel*/
-/* line 11, ../../sass/style_cs.scss */
+/* line 24, ../../sass/style_cs.scss */
 .carousel-inner img {
   margin: auto;
 }
+
+/*================koniec WYDARZENIA==================================*/

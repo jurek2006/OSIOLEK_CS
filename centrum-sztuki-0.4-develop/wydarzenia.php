@@ -10,6 +10,7 @@ get_header(); ?>
 <!-- Karuzela testowa -->
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Nie znajduje się w #main-wrap bo w przeciwieństwie do niego ma być ustawiana na całą szerokość strony -->
           <!-- Indicators -->
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -64,13 +65,28 @@ get_header(); ?>
 
     
 
-	<div id="main-container" class="clearfix">
+	<div id="main-container">
 
-
+        <!-- Trzy kolumny tekstu pod karuzelą -->
+          <div class="row wyrozniki">
+            <div class="col-sm-4">
+              <img class="img-circle" src="<?php echo get_template_directory_uri().'/img/pegaz_kwadrat.jpg' ?>" alt="Generic placeholder image" width="140" height="140">
+              <h2>Wydarzenia kulturalne</h2>
+              <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+            <div class="col-sm-4">
+              <img class="img-circle" src="<?php echo get_template_directory_uri().'/img/pegaz_kwadrat.jpg' ?>" alt="Generic placeholder image" width="140" height="140">
+              <h2>Kino Odra</h2>
+              <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+            <div class="col-sm-4">
+              <img class="img-circle" src="<?php echo get_template_directory_uri().'/img/pegaz_kwadrat.jpg' ?>" alt="Generic placeholder image" width="140" height="140">
+              <h2>Zajęcia edukacyjne</h2>
+              <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
     
-    	<section id="content-container" class="column-9">
-
-        
+    	<section id="content-container">
 
 		<?php
 			if (!is_single()){
