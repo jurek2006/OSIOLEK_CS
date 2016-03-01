@@ -16,19 +16,67 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/*================MEDIA QUERIES za pomoc─ů sass==================================*/
+/*zdefiniowanie punkt├│w brzegowych - takich jak w bootstrap*/
+/*Dodatkowy punkt brzegowy - wzgl─Ödem bootstrap*/
+/*Mamy zatem zakresy, kt├│rych mo┼╝emy u┼╝ywa─ç:
+		xxs <400px
+400px <= xs < 768px
+768px <= sm < 992px
+992px <= md < 1200px
+1200px < lg
+*/
+/*================koniec MEDIA QUERIES za pomoc─ů sass===========================*/
 /*================WYDARZENIA==================================*/
 /*Klasa trzech wyr├│┼╝nik├│w ("k├│┼éek") na stronie wydarze┼ä*/
-/* line 18, ../../sass/style_cs.scss */
+/* line 52, ../../sass/style_cs.scss */
 .wyrozniki {
   margin: 5em 0 5em 0;
   text-align: center;
 }
 
 /*Wycentrowanie obrazka w carousel*/
-/* line 25, ../../sass/style_cs.scss */
+/* line 59, ../../sass/style_cs.scss */
 .carousel-inner img {
   margin: auto;
 }
 
 /*Lista wydarze┼ä na stronie wydarzenia*/
+/* line 64, ../../sass/style_cs.scss */
+.wydarzenie {
+  	/*.wydarzenie-pasek{
+  
+  	}*/
+}
+@media only screen and (max-width: 399px) {
+  /* line 64, ../../sass/style_cs.scss */
+  .wydarzenie {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 400px) and (max-width: 767px) {
+  /* line 64, ../../sass/style_cs.scss */
+  .wydarzenie {
+    background-color: blue;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 64, ../../sass/style_cs.scss */
+  .wydarzenie {
+    background-color: red;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 64, ../../sass/style_cs.scss */
+  .wydarzenie {
+    background-color: green;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 64, ../../sass/style_cs.scss */
+  .wydarzenie {
+    background-color: yellow;
+  }
+}
+
 /*================koniec WYDARZENIA==================================*/

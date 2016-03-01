@@ -12,6 +12,40 @@ h1,h2,h3,h4,h5,h6{
 	font-weight: 700;
 }
 
+/*================MEDIA QUERIES za pomocą sass==================================*/
+/*zdefiniowanie punktów brzegowych - takich jak w bootstrap*/
+$xxs: 400px; /*Dodatkowy punkt brzegowy - względem bootstrap*/
+$xs: 768px;
+$sm: 992px;
+$md: 1200px;
+
+/*Mamy zatem zakresy, których możemy używać:
+		xxs <400px
+400px <= xs < 768px
+768px <= sm < 992px
+992px <= md < 1200px
+1200px < lg
+*/
+
+@mixin MQ($screen){
+	@if $screen == xxs{
+		@media only screen and (max-width: $xxs - 1px){ @content; }
+	}
+	@else if $screen == xs{
+		@media only screen and (min-width: $xxs) and (max-width: $xs - 1px){ @content; }
+	}
+	@else if $screen == sm{
+		@media only screen and (min-width: $xs) and (max-width: $sm - 1px){	@content; }
+	}
+	@else if $screen == md{
+		@media only screen and (min-width: $sm) and (max-width: $md - 1px){	@content; }
+	}
+	@else if $screen == lg{
+		@media only screen and (min-width: $md){ @content; }
+	}
+}
+/*================koniec MEDIA QUERIES za pomocą sass===========================*/
+
 /*================WYDARZENIA==================================*/
 
 /*Klasa trzech wyróżników ("kółek") na stronie wydarzeń*/
@@ -28,9 +62,29 @@ h1,h2,h3,h4,h5,h6{
 
 /*Lista wydarzeń na stronie wydarzenia*/
 .wydarzenie{
-	.wydarzenie-pasek{
 
+	@include MQ(xxs){
+		background-color: black;
 	}
+
+	@include MQ(xs){
+		background-color: blue;
+	}
+
+	@include MQ(sm){
+		background-color: red;
+	}
+
+	@include MQ(md){
+		background-color: green;
+	}
+
+	@include MQ(lg){
+		background-color: yellow;
+	}
+	/*.wydarzenie-pasek{
+
+	}*/
 }
 
 /*================koniec WYDARZENIA==================================*/
