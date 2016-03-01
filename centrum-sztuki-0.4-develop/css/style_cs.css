@@ -6,26 +6,29 @@ body {
   font-family: 'Magra', sans-serif;
   font-weight: 400;
   /*also loaded 700 for bold*/
+  font-size: 1.7em;
+  /*zwi─Ökszenie czcionki*/
   color: #333;
 }
 
-/* line 10, ../../sass/style_cs.scss */
+/* line 11, ../../sass/style_cs.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
 /*================WYDARZENIA==================================*/
 /*Klasa trzech wyr├│┼╝nik├│w ("k├│┼éek") na stronie wydarze┼ä*/
-/* line 17, ../../sass/style_cs.scss */
+/* line 18, ../../sass/style_cs.scss */
 .wyrozniki {
   margin: 5em 0 5em 0;
   text-align: center;
 }
 
 /*Wycentrowanie obrazka w carousel*/
-/* line 24, ../../sass/style_cs.scss */
+/* line 25, ../../sass/style_cs.scss */
 .carousel-inner img {
   margin: auto;
 }
 
+/*Lista wydarze┼ä na stronie wydarzenia*/
 /*================koniec WYDARZENIA==================================*/

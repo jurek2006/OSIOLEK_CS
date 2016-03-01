@@ -4,6 +4,7 @@
 body{
 	font-family: 'Magra', sans-serif;
 	font-weight:400;	/*also loaded 700 for bold*/
+	font-size: 1.7em; /*zwiększenie czcionki*/
 	color: #333;
 }
 
@@ -23,6 +24,13 @@ h1,h2,h3,h4,h5,h6{
 /*Wycentrowanie obrazka w carousel*/
 .carousel-inner img {
   margin: auto;
+}
+
+/*Lista wydarzeń na stronie wydarzenia*/
+.wydarzenie{
+	.wydarzenie-pasek{
+
+	}
 }
 
 /*================koniec WYDARZENIA==================================*/

@@ -65,7 +65,7 @@ get_header(); ?>
 
     
 
-	<div id="main-container">
+	<div id="main-container" class="row">
 
         <!-- Trzy kolumny tekstu pod karuzelą -->
           <div class="row wyrozniki">
@@ -86,7 +86,7 @@ get_header(); ?>
             </div><!-- /.col-lg-4 -->
           </div><!-- /.row -->
     
-    	<section id="content-container">
+    	<section id="content-container" class="col-xs-12 col-md-9">
 
 		<?php
 			if (!is_single()){
@@ -152,7 +152,7 @@ get_header(); ?>
 						
 						            ?>
             			<a href="<?php echo esc_url( $permalink); ?>" rel="bookmark"></a>
-                        <article class="wydarzenie column-12">
+                        <article class="wydarzenie">
                         	<div class="wydarzenie-pasek">
                                 <div class="termin" style="background-color:<?php echo $kolor_tla_naPodstLokalizacji ?>">
                                 <?php
