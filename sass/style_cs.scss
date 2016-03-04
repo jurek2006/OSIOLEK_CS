@@ -1,6 +1,15 @@
 /*Plik stylów wczytywany po bootstrapowym - Wczytywany po bootstrap.css*/
 
-/*Użycie czcionki Magra*/
+// Kolory:
+// Kolor tekstu nakładany - używany na kolorowych paskach lokalizacji - terminu
+$kolorNakladany: #fff; //Teraz biały
+
+// Tło wydarzenia:
+$tloWydarzenia: #eee; //lekko szary
+
+@import "compass/utilities/general/clearfix";
+
+// Użycie czcionki Magra
 body{
 	font-family: 'Magra', sans-serif;
 	font-weight:400;	/*also loaded 700 for bold*/
@@ -13,8 +22,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /*================MEDIA QUERIES za pomocą sass==================================*/
-/*zdefiniowanie punktów brzegowych - takich jak w bootstrap*/
-$xxs: 400px; /*Dodatkowy punkt brzegowy - względem bootstrap*/
+// zdefiniowanie punktów brzegowych - takich jak w bootstrap
+$xxs: 400px; //Dodatkowy punkt brzegowy - względem bootstrap
 $xs: 768px;
 $sm: 992px;
 $md: 1200px;
@@ -48,26 +57,30 @@ $md: 1200px;
 
 /*================WYDARZENIA==================================*/
 
-/*Klasa trzech wyróżników ("kółek") na stronie wydarzeń*/
+// Klasa trzech wyróżników ("kółek") na stronie wydarzeń
 .wyrozniki{
 	margin: 5em 0 5em 0;
 	text-align: center;
 }
 
 
-/*Wycentrowanie obrazka w carousel*/
+// Wycentrowanie obrazka w carousel
 .carousel-inner img {
   margin: auto;
 }
 
-/*Lista wydarzeń na stronie wydarzenia*/
-.wydarzenie{
+
+article.wydarzenie{
+	// Element (wpis) listy wydarzeń na stronie wydarzenia
+	@include clearfix;
+
+	background-color: $tloWydarzenia;
 
 	@include MQ(xxs){
 		background-color: black;
 	}
 
-	@include MQ(xs){
+	/*@include MQ(xs){
 		background-color: blue;
 	}
 
@@ -81,10 +94,25 @@ $md: 1200px;
 
 	@include MQ(lg){
 		background-color: yellow;
-	}
-	/*.wydarzenie-pasek{
-
 	}*/
+
+	div.termin{
+		//Część "kolorowa" wydarzenia - zawierająca informację na temat terminu - czyli kiedy i gdzie - kolor jest nadawany w HTML na podstawie koloru lokalizacji wydarzenia
+
+		color: $kolorNakladany;
+
+		span.dzien{
+			border: 1px solid green;
+		}
+	}
+
+	/*div.termin-dzien, div.termin-godz{
+		width: 50%;
+		float: left;
+	}
+*/
+
+
 }
 
 /*================koniec WYDARZENIA==================================*/

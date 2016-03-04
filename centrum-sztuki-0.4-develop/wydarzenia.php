@@ -151,198 +151,132 @@ get_header(); ?>
 						
 						
 						            ?>
-            			<a href="<?php echo esc_url( $permalink); ?>" rel="bookmark"></a>
-                        <article class="wydarzenie">
-                        	<div class="wydarzenie-pasek">
-                                <div class="termin" style="background-color:<?php echo $kolor_tla_naPodstLokalizacji ?>">
-                                <?php
-                                    if(!empty($termin_opisowy))
-                                    //jeśli jest to termin opisowy
-                                    {
-                                ?>		<!--Zawartość div.termin-->
-                                            <div class="termin-opisowy">
-                                                <p><?php echo $termin_opisowy ?></p>
-                                            </div>
-                                            <div class="termin-lokalizacja">
-                                                    <p><?php echo $lokalizacje; ?><br /><?php echo $lokalizacje_adres; ?></p>
-                                            </div>
-                                        <!--Koniec zawartości div.termin-->
-                                <?php
-                                    }//if(!empty($termin_opisowy))
-                                    else if(!empty($dzien_zakonczenia) && !empty($dzien_rozpoczecia))
-                                    //jeśli są wypełnione dzień zakończenia i dzień rozpoczęcia to jest to termin od - do
-                                    {
-                                ?>
-                                        <!--Zawartość div.termin-->
-                                            <div class="termin-od">
-                                                <p class="od-do">Od <?php echo zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_rozpoczecia), TRUE) ?></p>
-                                                <p class="dzien">
-                                                    <?php echo pobieczCzescDaty('j',$dzien_rozpoczecia) ?>
-                                                </p>
-                                                <p><?php echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_rozpoczecia)); ?><br />
-                                                    <?php echo pobieczCzescDaty('Y',$dzien_rozpoczecia); ?>
-                                                </p>
-                                            </div>
-                                            <div class="termin-do">
-                                                <p class="od-do">Do <?php echo zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_zakonczenia), TRUE) ?></p>
-                                                <p class="dzien">
-                                                    <?php echo pobieczCzescDaty('j',$dzien_zakonczenia) ?>
-                                                </p>
-                                                <p><?php echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_zakonczenia)); ?><br />
-                                                    <?php echo pobieczCzescDaty('Y',$dzien_zakonczenia); ?>
-                                                </p>
-                                            </div>
-                                            <div class="termin-lokalizacja">
-                                                <p><?php echo $lokalizacje; ?><br /><?php echo $lokalizacje_adres; ?></p>
-                                            </div>
-                                          <!--Koniec zawartości div.termin-->
-                                <?php
-                                    }//else if(!empty($dzien_zakonczenia) && !empty($dzien_rozpoczecia))
-                                    else if(!empty($dzien_rozpoczecia))
-                                    //jeśli jest wypełniony tylko $dzien_rozpoczecia, bez $dzien_zakonczenia to jest to wydarzenie jednodniowe
-                                    {
-                                ?>
-                                    <!--Zawartość div.termin-->
-                                        <div class="termin-jednodniowy">
-                                            <p> <?php echo zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_rozpoczecia)) ?></p>
-                                            <p class="dzien">
-                                                <?php echo pobieczCzescDaty('j',$dzien_rozpoczecia) ?>
-                                            </p>
-                                            <p><?php echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_rozpoczecia)); ?><br />
-                                                <?php echo pobieczCzescDaty('Y',$dzien_rozpoczecia); ?>
-                                            </p>
-                                        </div>
-                                        <div class="termin-lokalizacja">
-                                                <p><?php echo $lokalizacje; ?><br /><?php echo $lokalizacje_adres; ?></p>
-                                        </div>
-                                    <!--Koniec zawartości div.termin-->
-                                <?php
-                                    }//if(!empty($dzien_rozpoczecia))
-                                    else if(!empty($data_i_godzina_wydarzenia))
-                                    //jeśli nie wypełnione żadne powyższe brana jest pod uwagę $data_i_godzina_wydarzenia (zwykłe wydarzenie)
-                                    //sprawdzanie czy jest empty powinno być tu formalnością, bo nie da się dodać wydarzenia bez wypełnienia tego pola
-                                    {
-                                ?>
-                                        <!--Zawartość div.termin-->
-                                        
-                                            <div class="termin-dzien">
-                                                <p> <?php echo zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$data_i_godzina_wydarzenia)) ?></p>
-                                                <p class="dzien">
-                                                    <?php echo pobieczCzescDaty('j',$data_i_godzina_wydarzenia) ?>
-                                                </p>
-                                                <p><?php echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$data_i_godzina_wydarzenia)); ?><br />
-                                                    <?php echo pobieczCzescDaty('Y',$data_i_godzina_wydarzenia); ?>
-                                                </p>
-                                            </div>
-                                            <div class="termin-godz">
-                                                <p>godz:</p>
-                                                <p class="godzina">
-                                                    <?php echo pobieczCzescDaty('G',$data_i_godzina_wydarzenia) ?>
-                                                    <span class="minuty">
-                                                        <?php echo pobieczCzescDaty('i',$data_i_godzina_wydarzenia) ?>
-                                                    </span>
-                                                </p>
-                                            </div>
-                                            <div class="termin-lokalizacja">
-                                                <p><?php echo $lokalizacje; ?><br /><?php echo $lokalizacje_adres; ?></p>
-                                            </div>
-                                        <!--Koniec zawartości div.termin-->
-                                <?php
-                                    }//else if(!empty($data_i_godzina_wydarzenia))
-                                    else
-                                    //jeśli nie jest to żaden ze znanych rodzajów terminów
-                                    {
-                                ?>		<!--Zawartość div.termin-->
-                                                <p>Błąd terminu</p>
-                                        <!--Koniec zawartości div.termin-->
-                                <?php
-                                    }//else
+            			<!-- <a href="<?php //echo esc_url( $permalink); ?>" rel="bookmark"></a> PO CO TO?-->
+              <article class="wydarzenie">
+
+                <div class="lewa col-xs-12 col-sm-6">
+                <!-- Lewa strona wpidu wydarzenia na liście wydarzeń -->
+
+                  <h1 class="tytul"> <?php _e( $title , 'PP2014' ); ?> </h1> <!-- Tytuł wydarzenia -->
+
+                  <!-- Kategorie wydarzenia -->
+                  <div class="kategorie">
+                    <?php for($i=0; $i < count($kategorie_name); $i++){
+                        if(!empty($kategorie_slug[$i]))
+                        {
+                            echo '<a href="'.home_url().'/kategorie_wydarzen/'.$kategorie_slug[$i].'/" class="kategoria">'.$kategorie_name[$i].'</a> ';
+                        }
+                    }?>
+                  </div> <!-- .lewa -->
+
+                  <!-- Krótki opis wydarzenia -->
+                  <div class="opis">
+                      <?php echo $krotki_opis; ?>
+                  </div>
+
+                </div>
+
+                <div class="prawa col-xs-12 col-sm-6">
+                <!-- Prawa strona wpidu wydarzenia na liście wydarzeń -->
+                <?php 
+
+                    // Miniatura - thumb
+                    //jeśli wydarzenie ma przypisaną miniaturę, to jest ona wyświetlana
+                    if (( !is_null($picture) )&&(!empty($picture))){
+                        echo wp_get_attachment_image( $picture['ID'],'thumbnail', false, $attr='class=thumb' ); 
+                    }
+                    //jeśli wydarzenie nie ma przypisanej miniatury to jest wyświetlany standardowy obrazek pegaz_thumb.jpg
+                    else{
+                        echo '<img class="thumb" src="'.get_stylesheet_directory_uri().'/pegaz_thumb.png" />';    
+                    }?>
+
+                    <!-- Sekcja daty wydarzenia i lokalizacji (kolorowe tło na podstawie koloru lokalizacji wydarzenia) -->
+
+                    <!-- ================================================================================================================== -->
+                    <div class="termin row" style="background-color:<?php echo $kolor_tla_naPodstLokalizacji ?>">
+                        <?php
+                            if(!empty($termin_opisowy))
+                            //jeśli jest to termin opisowy
+                            {
+                        ?>    <!--Zawartość div.termin-->
                                     
-                                ?>
-                                </div><!--.termin-->
+                                  <!-- TERMIN OPISOWY -->
+
+                                <!--Koniec zawartości div.termin-->
+                        <?php
+                            }//if(!empty($termin_opisowy))
+                            else if(!empty($dzien_zakonczenia) && !empty($dzien_rozpoczecia))
+                            //jeśli są wypełnione dzień zakończenia i dzień rozpoczęcia to jest to termin od - do
+                            {
+                        ?>
+                                <!--Zawartość div.termin-->
+                                    
+                                      <!-- TERMIN OD-DO -->
+
+                                  <!--Koniec zawartości div.termin-->
+                        <?php
+                            }//else if(!empty($dzien_zakonczenia) && !empty($dzien_rozpoczecia))
+                            else if(!empty($dzien_rozpoczecia))
+                            //jeśli jest wypełniony tylko $dzien_rozpoczecia, bez $dzien_zakonczenia to jest to wydarzenie jednodniowe
+                            {
+                        ?>
+                            <!--Zawartość div.termin-->
                                 
-                                <div class="termin-thumb">
-                                    <?php 
-                                    //jeśli wydarzenie ma przypisaną miniaturę, to jest ona wyświetlana
-                                    if (( !is_null($picture) )&&(!empty($picture))){
-                                        echo wp_get_attachment_image( $picture['ID'] ); 
-                                    }
-                                    //jeśli wydarzenie nie ma przypisanej miniatury to jest wyświetlany standardowy obrazek pegaz_thumb.jpg
-                                    else{
-                                        echo '<img src="'.get_stylesheet_directory_uri().'/pegaz_thumb.png" />';	
-                                    }?>
-                                 </div><!--termin-thumb-->
+                                    <!-- TERMIN JEDNODNIOWY -->
+
+                            <!--Koniec zawartości div.termin-->
+                        <?php
+                            }//if(!empty($dzien_rozpoczecia))
+                            else if(!empty($data_i_godzina_wydarzenia))
+                            //jeśli nie wypełnione żadne powyższe brana jest pod uwagę $data_i_godzina_wydarzenia (zwykłe wydarzenie)
+                            //sprawdzanie czy jest empty powinno być tu formalnością, bo nie da się dodać wydarzenia bez wypełnienia tego pola
+                            {
+                        ?>
+                                <!--Zawartość div.termin-->
                                 
-                                <div class="wydarzenie-tresc">
-                                    <h1 class="wydarzenie-tytul">
-                                             <?php _e( $title , 'PP2014' ); ?>
-                                    </h1>
-                                    <div class="wydarzenie-kategorie">
-                                        <?php for($i=0; $i < count($kategorie_name); $i++){
-                                            if(!empty($kategorie_slug[$i]))
-                                            {
-                                                echo '<a href="'.home_url().'/kategorie_wydarzen/'.$kategorie_slug[$i].'/" class="kategoria">'.$kategorie_name[$i].'</a> ';
-                                            }
-                                        }?>
-                                        
-                                        
+                                    <div class="termin-dzien col-xs-6">
+
+                                        <!-- Data wydarzenia -->
+                                        <p><?php 
+                                          echo zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$data_i_godzina_wydarzenia)).' ';
+                                          echo '<span class="dzien">'.pobieczCzescDaty('j',$data_i_godzina_wydarzenia).'</span> ';
+                                          echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$data_i_godzina_wydarzenia)).' ';
+                                          echo pobieczCzescDaty('Y',$data_i_godzina_wydarzenia);
+                                        ?></p>
                                     </div>
-                                    <div class="wydarzenie-opis">
-                                        <?php echo $krotki_opis; ?>
+                                    <div class="termin-godz col-xs-6">
+
+                                        <!-- Godzina wydarzenia -->
+                                        <p><?php
+                                          echo 'godz: '; 
+                                          echo '<span class="godziny">'.pobieczCzescDaty('G',$data_i_godzina_wydarzenia).'</span>';
+                                          echo '<span class="hidden">:</span>'; //Ukryty span - gdy nie ma wczytanych stylów wyświetla : w godzinie 00:00
+                                          echo '<span class="minuty">'.pobieczCzescDaty('i',$data_i_godzina_wydarzenia).'</span>';
+                                        ?></p>
+
                                     </div>
-                                </div><!--.wydarzenie-tresc-->
-                                
-                                <a class="wydarzenie-czytajWiecej" href="<?php echo esc_url( $permalink); ?>"><div>Czytaj<br />
-    więcej</div></a>
-							</div><!--.wydarzenie-pasek-->
+                                    <div class="termin-lokalizacja col-xs-12">
+                                        <p><?php echo $lokalizacje; ?><br /><?php echo $lokalizacje_adres; ?></p>
+                                    </div>
+                                <!--Koniec zawartości div.termin-->
+                        <?php
+                            }//else if(!empty($data_i_godzina_wydarzenia))
+                            else
+                            //jeśli nie jest to żaden ze znanych rodzajów terminów
+                            {
+                        ?>    <!--Zawartość div.termin-->
+                                        <p>Błąd terminu</p>
+                                <!--Koniec zawartości div.termin-->
+                        <?php
+                            }//else
                             
-							<!-- KUP BILET, TYLKO W KASIE, BRAK BILETÓW itp. -->
-                            <div class="wydarzenie-bilety">
-                            
-                            <?php if(!empty($inny_komunikat_o_biletach)){
-											//jeśli pole inny_komunikat_o_biletach nie jest pusty to wyświetlana jest jego treść a cała reszta pomijana
-											echo '<span>'.$inny_komunikat_o_biletach.'</span>';
-											}//if(!empty($inny_komunikat_o_biletach))
-											else{
-												switch ($opcje_sprzedazy) {
-													case "wstep_wolny":
-														echo '<span>Wstęp wolny</span>';
-														break;
-													case "brak_biletow":
-														echo '<span class="brak-biletow">Brak biletów</span>';
-														break;
-													case "tylko_kasa":
-														echo '<span class="bilety-kasa"><a href="'.home_url().'/o-nas/kasa/">Bilety do nabycia w kasie</a></span>';
-														break;
-													default:
-														$termin_publikacji_odnosnika = new DateTime($dzien_publikacji_odnosnika_do_biletow.' '.$godzina_publikacji_odnosnika_do_biletow);
-														//$termin_publikacji_odnosnika  = new DateTime();
-														$teraz = pobierzDateTeraz();
-													   if(empty($dzien_publikacji_odnosnika_do_biletow) || $termin_publikacji_odnosnika < $teraz){
-														   //jeśli minął już termin publikacji odnośnika lub nie wybrano dnia publikacji (równoznaczne
-														   //z opublikowaniem
-														   if($id_w_sprzedazy_online > 0){
-															   //jeśli podano konkretny ID w sprzedaży
-														   		echo '<span class="kup-bilet"><a href="http://www.systembiletowy.pl/cso/index.php/repertoire.html?id='.$id_w_sprzedazy_online.'">Kup bilety</a></span>';
-														   }
-														   else{
-															   //jeśli nie podano konkretnego ID w sprzedaży - link do całego repertuaru w sprzedaży
-															   echo '<span class="kup-bilet"><a href="'.home_url().'/bilety-online/">Kup bilety</a></span>';
-														   }
-													   }
-													   else{
-														   
-														   //użycue funkcji zamienDateGodzinePodsNaTekst - chcąc ustawić trzeci parametr (bez wyświetlania roku) na TRUE muszę ustawić drugi na NULL
-															echo '<span>Bilety w sprzedaży od '.zamienDateGodzinePodsNaTekst($termin_publikacji_odnosnika->format('Y-m-d'), NULL, TRUE).'</span>';
-																												   }
-												}
-												
-											}//else od if(!empty($inny_komunikat_o_biletach))
-									?>
-                            
-                            
-                            </div><!--.wydarzenie-bilety-->
-                        </article>
+                        ?>
+                    </div><!--.termin-->
+
+                    <!-- ================================================================================================================== -->
+                </div><!-- .prawa -->
+
+              </article>
             <?php
 					}//while ( $pods->fetch() )
 				}//if ( $pods->total() > 0 )
