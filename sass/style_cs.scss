@@ -28,31 +28,36 @@ $xs: 768px;
 $sm: 992px;
 $md: 1200px;
 
-/*Mamy zatem zakresy, których możemy używać:
-		xxs <400px
-400px <= xs < 768px
-768px <= sm < 992px
-992px <= md < 1200px
-1200px < lg
-*/
+// Mamy zatem zakresy, których możemy używać:
+// 		xxs <400px
+// 400px <= xs < 768px
+// 768px <= sm < 992px
+// 992px <= md < 1200px
+// 1200px < lg
+
+// Działa tak jak col w bootstrap, czyli jeśli zdefiniujemy np coś dla wielkości tylko xs, a dla większych nie
+// To dla tych większych też będzie działać
+
 
 @mixin MQ($screen){
-	@if $screen == xxs{
-		@media only screen and (max-width: $xxs - 1px){ @content; }
-	}
-	@else if $screen == xs{
-		@media only screen and (min-width: $xxs) and (max-width: $xs - 1px){ @content; }
-	}
-	@else if $screen == sm{
-		@media only screen and (min-width: $xs) and (max-width: $sm - 1px){	@content; }
-	}
-	@else if $screen == md{
-		@media only screen and (min-width: $sm) and (max-width: $md - 1px){	@content; }
-	}
-	@else if $screen == lg{
+	@if $screen == lg{
 		@media only screen and (min-width: $md){ @content; }
 	}
+	@else if $screen == md{
+		@media only screen and (min-width: $sm){ @content; }
+	}
+	@else if $screen == sm{
+		@media only screen and (min-width: $xs){ @content; }
+	}
+	@else if $screen == xs{
+		@media only screen and (min-width: $xxs){ @content; }
+	}
+	@if $screen == xxs{
+		 @content;
+	}
+	
 }
+
 /*================koniec MEDIA QUERIES za pomocą sass===========================*/
 
 /*================WYDARZENIA==================================*/
@@ -82,19 +87,19 @@ article.wydarzenie{
 
 	/*@include MQ(xs){
 		background-color: blue;
-	}
+	}*/
 
 	@include MQ(sm){
 		background-color: red;
 	}
 
-	@include MQ(md){
+	/*@include MQ(md){
 		background-color: green;
-	}
+	}*/
 
 	@include MQ(lg){
 		background-color: yellow;
-	}*/
+	}
 
 	div.termin{
 		//Część "kolorowa" wydarzenia - zawierająca informację na temat terminu - czyli kiedy i gdzie - kolor jest nadawany w HTML na podstawie koloru lokalizacji wydarzenia

@@ -16,63 +16,54 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*================MEDIA QUERIES za pomoc─ů sass==================================*/
-/*Mamy zatem zakresy, kt├│rych mo┼╝emy u┼╝ywa─ç:
-		xxs <400px
-400px <= xs < 768px
-768px <= sm < 992px
-992px <= md < 1200px
-1200px < lg
-*/
 /*================koniec MEDIA QUERIES za pomoc─ů sass===========================*/
 /*================WYDARZENIA==================================*/
-/* line 61, ../../sass/style_cs.scss */
+/* line 66, ../../sass/style_cs.scss */
 .wyrozniki {
   margin: 5em 0 5em 0;
   text-align: center;
 }
 
-/* line 68, ../../sass/style_cs.scss */
+/* line 73, ../../sass/style_cs.scss */
 .carousel-inner img {
   margin: auto;
 }
 
-/* line 73, ../../sass/style_cs.scss */
+/* line 78, ../../sass/style_cs.scss */
 article.wydarzenie {
   overflow: hidden;
   *zoom: 1;
   background-color: #eee;
-  	/*@include MQ(xs){
-  		background-color: blue;
-  	}
-  
-  	@include MQ(sm){
-  		background-color: red;
-  	}
-  
-  	@include MQ(md){
-  		background-color: green;
-  	}
-  
-  	@include MQ(lg){
-  		background-color: yellow;
-  	}*/
+  background-color: black;
+  /*@include MQ(xs){
+  	background-color: blue;
+  }*/
+  /*@include MQ(md){
+  	background-color: green;
+  }*/
   	/*div.termin-dzien, div.termin-godz{
   		width: 50%;
   		float: left;
   	}
   */
 }
-@media only screen and (max-width: 399px) {
-  /* line 73, ../../sass/style_cs.scss */
+@media only screen and (min-width: 768px) {
+  /* line 78, ../../sass/style_cs.scss */
   article.wydarzenie {
-    background-color: black;
+    background-color: red;
   }
 }
-/* line 99, ../../sass/style_cs.scss */
+@media only screen and (min-width: 1200px) {
+  /* line 78, ../../sass/style_cs.scss */
+  article.wydarzenie {
+    background-color: yellow;
+  }
+}
+/* line 104, ../../sass/style_cs.scss */
 article.wydarzenie div.termin {
   color: #fff;
 }
-/* line 104, ../../sass/style_cs.scss */
+/* line 109, ../../sass/style_cs.scss */
 article.wydarzenie div.termin span.dzien {
   border: 1px solid green;
 }
