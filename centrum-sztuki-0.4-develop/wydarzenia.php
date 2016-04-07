@@ -86,7 +86,7 @@ get_header(); ?>
             </div><!-- /.col-lg-4 -->
           </div><!-- /.row -->
     
-    	<section id="content-container" class="col-xs-12 col-md-9">
+    	<section id="content-container" class="col-xs-12 col-lg-9">
 
 		<?php
 			if (!is_single()){
@@ -154,7 +154,7 @@ get_header(); ?>
             			<!-- <a href="<?php //echo esc_url( $permalink); ?>" rel="bookmark"></a> PO CO TO?-->
               <article class="wydarzenie">
 
-                <div class="lewa col-xs-12 col-sm-6">
+                <div class="lewa">
                 <!-- Lewa strona wpidu wydarzenia na liście wydarzeń -->
 
                   <h1 class="tytul"> <?php _e( $title , 'PP2014' ); ?> </h1> <!-- Tytuł wydarzenia -->
@@ -176,7 +176,7 @@ get_header(); ?>
 
                 </div>
 
-                <div class="prawa col-xs-12 col-sm-6">
+                <div class="prawa" style="background-color:<?php echo $kolor_tla_naPodstLokalizacji ?>">
                 <!-- Prawa strona wpidu wydarzenia na liście wydarzeń -->
                 <?php 
 
@@ -193,7 +193,7 @@ get_header(); ?>
                     <!-- Sekcja daty wydarzenia i lokalizacji (kolorowe tło na podstawie koloru lokalizacji wydarzenia) -->
 
                     <!-- ================================================================================================================== -->
-                    <div class="termin row" style="background-color:<?php echo $kolor_tla_naPodstLokalizacji ?>">
+                    <div class="termin">
                         <?php
                             if(!empty($termin_opisowy))
                             //jeśli jest to termin opisowy
@@ -234,7 +234,7 @@ get_header(); ?>
                         ?>
                                 <!--Zawartość div.termin-->
                                 
-                                    <div class="termin-dzien col-xs-6">
+                                    <div class="termin-dzien">
 
                                         <!-- Data wydarzenia -->
                                         <p><?php 
@@ -244,7 +244,7 @@ get_header(); ?>
                                           echo pobieczCzescDaty('Y',$data_i_godzina_wydarzenia);
                                         ?></p>
                                     </div>
-                                    <div class="termin-godz col-xs-6">
+                                    <div class="termin-godz">
 
                                         <!-- Godzina wydarzenia -->
                                         <p><?php
@@ -255,7 +255,7 @@ get_header(); ?>
                                         ?></p>
 
                                     </div>
-                                    <div class="termin-lokalizacja col-xs-12">
+                                    <div class="termin-lokalizacja">
                                         <p><?php echo $lokalizacje; ?><br /><?php echo $lokalizacje_adres; ?></p>
                                     </div>
                                 <!--Koniec zawartości div.termin-->

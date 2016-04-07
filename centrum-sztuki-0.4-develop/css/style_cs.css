@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*Plik styl├│w wczytywany po bootstrapowym - Wczytywany po bootstrap.css*/
-/* line 13, ../../sass/style_cs.scss */
+/* line 24, ../../sass/style_cs.scss */
 body {
   font-family: 'Magra', sans-serif;
   font-weight: 400;
@@ -10,7 +10,7 @@ body {
   color: #333;
 }
 
-/* line 20, ../../sass/style_cs.scss */
+/* line 31, ../../sass/style_cs.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
@@ -18,54 +18,80 @@ h1, h2, h3, h4, h5, h6 {
 /*================MEDIA QUERIES za pomoc─ů sass==================================*/
 /*================koniec MEDIA QUERIES za pomoc─ů sass===========================*/
 /*================WYDARZENIA==================================*/
-/* line 66, ../../sass/style_cs.scss */
+/* line 101, ../../sass/style_cs.scss */
 .wyrozniki {
   margin: 5em 0 5em 0;
   text-align: center;
 }
 
-/* line 73, ../../sass/style_cs.scss */
+/* line 108, ../../sass/style_cs.scss */
 .carousel-inner img {
   margin: auto;
 }
 
-/* line 78, ../../sass/style_cs.scss */
+/* line 113, ../../sass/style_cs.scss */
 article.wydarzenie {
   overflow: hidden;
   *zoom: 1;
   background-color: #eee;
-  background-color: black;
-  /*@include MQ(xs){
-  	background-color: blue;
-  }*/
-  /*@include MQ(md){
-  	background-color: green;
-  }*/
-  	/*div.termin-dzien, div.termin-godz{
-  		width: 50%;
-  		float: left;
-  	}
-  */
 }
-@media only screen and (min-width: 768px) {
-  /* line 78, ../../sass/style_cs.scss */
-  article.wydarzenie {
-    background-color: red;
+/* line 135, ../../sass/style_cs.scss */
+article.wydarzenie div.lewa {
+  width: 100%;
+}
+@media only screen and (min-width: 992px) {
+  /* line 135, ../../sass/style_cs.scss */
+  article.wydarzenie div.lewa {
+    width: 435px;
+    float: left;
   }
 }
-@media only screen and (min-width: 1200px) {
-  /* line 78, ../../sass/style_cs.scss */
-  article.wydarzenie {
-    background-color: yellow;
+/* line 144, ../../sass/style_cs.scss */
+article.wydarzenie div.prawa {
+  width: 100%;
+}
+@media only screen and (min-width: 992px) {
+  /* line 144, ../../sass/style_cs.scss */
+  article.wydarzenie div.prawa {
+    width: 405px;
+    float: right;
   }
 }
-/* line 104, ../../sass/style_cs.scss */
+/* line 153, ../../sass/style_cs.scss */
 article.wydarzenie div.termin {
   color: #fff;
 }
-/* line 109, ../../sass/style_cs.scss */
+@media only screen and (min-width: 992px) {
+  /* line 153, ../../sass/style_cs.scss */
+  article.wydarzenie div.termin {
+    width: 240px;
+    float: right;
+  }
+}
+/* line 163, ../../sass/style_cs.scss */
 article.wydarzenie div.termin span.dzien {
   border: 1px solid green;
+}
+/* line 168, ../../sass/style_cs.scss */
+article.wydarzenie img.thumb {
+  width: 150px;
+  height: 150px;
+}
+@media only screen and (min-width: 992px) {
+  /* line 173, ../../sass/style_cs.scss */
+  article.wydarzenie div.termin-dzien, article.wydarzenie div.termin-godz {
+    width: 120px;
+    height: 100px;
+    float: left;
+  }
+}
+@media only screen and (min-width: 992px) {
+  /* line 181, ../../sass/style_cs.scss */
+  article.wydarzenie div.termin-lokalizacja {
+    width: 240px;
+    height: 50px;
+    float: right;
+  }
 }
 
 /*================koniec WYDARZENIA==================================*/

@@ -1,11 +1,22 @@
 /*Plik stylów wczytywany po bootstrapowym - Wczytywany po bootstrap.css*/
 
-// Kolory:
+// KOLORY:
 // Kolor tekstu nakładany - używany na kolorowych paskach lokalizacji - terminu
 $kolorNakladany: #fff; //Teraz biały
 
 // Tło wydarzenia:
 $tloWydarzenia: #eee; //lekko szary
+
+// USTAWIENIA SZEROKOŚCI, ODSTĘPÓW
+//używane w wydarzenia.php
+$padding-kolumny: 15px; //Wartość aktualnie nieużywana (na podstawie ustawień bootstrap) - potrzebna do wyliczania szerokości elementów wpisu "wydarzenie" na liście wydarzeń
+$wydarzenie-height: 150px; //Wysokość paska wydarzenia przy wielkościach md i lg (przy mniejszych same się dostosowują)
+$wydarzenie-thumb-width: 150px; //Szerokośc obrazka thumb na liście wydarzeń
+$wydarzenie-thumb-height: 150px; //Wysokość obrazka thumb na liście wydarzeń
+$wydarzenie-termin-dzien-width: 120px; //Szerokość jednej kolumny (np. dnia lub godziny) w części terminu wydarzenia
+$wydarzenie-termin-dzien-height: 100px; //Wysokość kolumny (dnia i godziny) w części terminu wydarzenia
+$margines-bledu: 15px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
+
 
 @import "compass/utilities/general/clearfix";
 
@@ -58,6 +69,30 @@ $md: 1200px;
 	
 }
 
+// Przykład użycia MQ:
+// ------------------------
+//tutaj jakiś standardowy styl, dla rozdzielczości mniejszej niż $xxs
+
+// @include MQ(xs){
+//	// styl dla rodzielczości większej niż $xxs
+// 	background-color: blue;
+// }
+
+// @include MQ(sm){
+//	// styl dla rodzielczości większej niż $xs
+// 	background-color: red;
+// }
+
+// @include MQ(md){
+//	// styl dla rodzielczości większej niż $sm
+// 	background-color: green;
+// }
+
+// @include MQ(lg){
+//	// styl dla rodzielczości większej niż $md
+// 	background-color: yellow;
+// }
+
 /*================koniec MEDIA QUERIES za pomocą sass===========================*/
 
 /*================WYDARZENIA==================================*/
@@ -78,27 +113,41 @@ $md: 1200px;
 article.wydarzenie{
 	// Element (wpis) listy wydarzeń na stronie wydarzenia
 	@include clearfix;
-
 	background-color: $tloWydarzenia;
 
-	@include MQ(xxs){
-		background-color: black;
+	// Dla rozmiarów xxs, xs, sm części .lewa i .prawa są i tak na całą szerokość article.wydarzenie
+	// Dla rozmiarów lg i md zaczynają tworzyć pasek i wtedy dopiero używane są szerokości odpowiednich sekcji w pikselach
+
+	//Wyliczenie szerokości elementów dla ekranów o szerokości większej niż md
+	//Wyliczenie szerokości div.prawa:
+
+	// $padding-kolumny: 15px; //Wartość aktualnie nieużywana (na podstawie ustawień bootstrap) - potrzebna do wyliczania szerokości elementów wpisu "wydarzenie" na liście wydarzeń
+	// $wydarzenie-thumb-width: 150px; //Szerokośc obrazka thumb na liście wydarzeń
+	// $wydarzenie-termin-dzien-width: 120px; //Szerokość jednej kolumny (np. dnia lub godziny) w części terminu wydarzenia
+	// $margines-bledu: 5px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
+
+	$prawa-width: 2 * $wydarzenie-termin-dzien-width + $wydarzenie-thumb-width + $margines-bledu;
+
+	//Wyliczenie szerokości div.lewa:
+	//Wyliczane dla szerokości $md (z uwzględnieniem, że część na wydarzenia zajmuje 3/4 szerokości i biorąc pod uwagę padding)
+	$lewa-width: ($md - 4 * $padding-kolumny) * 3/4 - $prawa-width - $margines-bledu;
+ 
+	div.lewa{
+		width: 100%;
+
+		@include MQ(md){
+			width: $lewa-width;
+			float: left;
+		}
 	}
 
-	/*@include MQ(xs){
-		background-color: blue;
-	}*/
+	div.prawa{
+		width: 100%;
 
-	@include MQ(sm){
-		background-color: red;
-	}
-
-	/*@include MQ(md){
-		background-color: green;
-	}*/
-
-	@include MQ(lg){
-		background-color: yellow;
+		@include MQ(md){
+			width: $prawa-width;
+			float: right;
+		}
 	}
 
 	div.termin{
@@ -106,16 +155,37 @@ article.wydarzenie{
 
 		color: $kolorNakladany;
 
+		@include MQ(md){
+			width: 2 * $wydarzenie-termin-dzien-width;
+			float: right;
+		}
+
 		span.dzien{
 			border: 1px solid green;
 		}
 	}
 
-	/*div.termin-dzien, div.termin-godz{
-		width: 50%;
-		float: left;
+	img.thumb{
+		width: $wydarzenie-thumb-width; 
+		height: $wydarzenie-thumb-height;
 	}
-*/
+
+	div.termin-dzien, div.termin-godz{
+		@include MQ(md){
+			width: $wydarzenie-termin-dzien-width;
+			height: $wydarzenie-termin-dzien-height;
+			float: left;
+		}
+	}
+
+	div.termin-lokalizacja{
+		@include MQ(md){
+			width: 2 * $wydarzenie-termin-dzien-width;
+			height: $wydarzenie-height - $wydarzenie-termin-dzien-height;
+			float: right;
+		}
+	}
+
 
 
 }
