@@ -35,63 +35,63 @@ h2 {
 }
 
 /* line 122, ../../sass/style_cs.scss */
-article.wydarzenie {
+div.odnosnik {
   overflow: hidden;
   *zoom: 1;
   background-color: #eee;
   margin-top: 15px;
 }
 /* line 145, ../../sass/style_cs.scss */
-article.wydarzenie div.lewa {
+div.odnosnik div.lewa {
   width: 100%;
   padding: 5px 10px 5px 0;
 }
 @media only screen and (min-width: 992px) {
   /* line 145, ../../sass/style_cs.scss */
-  article.wydarzenie div.lewa {
+  div.odnosnik div.lewa {
     width: 435px;
     float: left;
   }
 }
 /* line 154, ../../sass/style_cs.scss */
-article.wydarzenie div.lewa h2 {
+div.odnosnik div.lewa h2 {
   margin-top: 0;
 }
 /* line 159, ../../sass/style_cs.scss */
-article.wydarzenie div.prawa {
+div.odnosnik div.prawa {
   width: 100%;
   background-color: #ccc;
 }
 @media only screen and (min-width: 992px) {
   /* line 159, ../../sass/style_cs.scss */
-  article.wydarzenie div.prawa {
+  div.odnosnik div.prawa {
     width: 405px;
     float: right;
   }
 }
 /* line 169, ../../sass/style_cs.scss */
-article.wydarzenie div.termin {
+div.odnosnik div.termin {
   color: #fff;
 }
 @media only screen and (min-width: 992px) {
   /* line 169, ../../sass/style_cs.scss */
-  article.wydarzenie div.termin {
+  div.odnosnik div.termin {
     width: 240px;
     float: right;
   }
 }
 /* line 179, ../../sass/style_cs.scss */
-article.wydarzenie div.termin span.dzien {
+div.odnosnik div.termin span.dzien {
   border: 1px solid green;
 }
 /* line 184, ../../sass/style_cs.scss */
-article.wydarzenie img.thumb {
+div.odnosnik img.thumb {
   width: 150px;
   height: 150px;
 }
 @media only screen and (min-width: 992px) {
   /* line 189, ../../sass/style_cs.scss */
-  article.wydarzenie div.termin-dzien, article.wydarzenie div.termin-godz {
+  div.odnosnik div.termin-dzien, div.odnosnik div.termin-godz {
     width: 120px;
     height: 100px;
     float: left;
@@ -99,14 +99,14 @@ article.wydarzenie img.thumb {
 }
 @media only screen and (min-width: 992px) {
   /* line 197, ../../sass/style_cs.scss */
-  article.wydarzenie div.termin-lokalizacja {
+  div.odnosnik div.termin-lokalizacja {
     width: 240px;
     height: 50px;
     float: right;
   }
 }
 /* line 205, ../../sass/style_cs.scss */
-article.wydarzenie a.czytajWiecej {
+div.odnosnik a.czytajWiecej {
   border: 1px solid green;
 }
 

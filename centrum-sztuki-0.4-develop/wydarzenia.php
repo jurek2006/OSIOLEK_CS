@@ -152,9 +152,9 @@ get_header(); ?>
 						
 						
 						            ?>
-
-              <a class="czytajWiecej" href="<?php echo esc_url( $permalink); ?>">
               <article class="wydarzenie">
+              <a class="czytajWiecej" href="<?php echo esc_url( $permalink); ?>">
+              <div class="odnosnik">
 
                 <div class="lewa">
                 <!-- Lewa strona wpidu wydarzenia na liście wydarzeń -->
@@ -326,9 +326,11 @@ get_header(); ?>
                     <!-- ================================================================================================================== -->
                 </div><!-- .prawa -->
 
-              </article>
+              </div><!-- . -->
 
               </a>
+
+              </article>
 
 
             <?php

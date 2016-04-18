@@ -119,7 +119,7 @@ $md: 1200px;
 }
 
 
-article.wydarzenie{
+div.odnosnik{
 	// Element (wpis) listy wydarzeń na stronie wydarzenia
 	@include clearfix;
 	background-color: $tloWydarzenia;
