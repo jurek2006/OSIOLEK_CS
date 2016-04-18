@@ -152,6 +152,8 @@ get_header(); ?>
 						
 						
 						            ?>
+
+              <a class="czytajWiecej" href="<?php echo esc_url( $permalink); ?>">
               <article class="wydarzenie">
 
                 <div class="lewa">
@@ -164,7 +166,8 @@ get_header(); ?>
                     <?php for($i=0; $i < count($kategorie_name); $i++){
                         if(!empty($kategorie_slug[$i]))
                         {
-                            echo '<a href="'.home_url().'/kategorie_wydarzen/'.$kategorie_slug[$i].'/" class="kategoria">'.$kategorie_name[$i].'</a> ';
+                            // echo '<a href="'.home_url().'/kategorie_wydarzen/'.$kategorie_slug[$i].'/" class="kategoria">'.$kategorie_name[$i].'</a> ';
+                          echo $kategorie_name[$i];
                         }
                     }?>
                   </div> <!-- .lewa -->
@@ -323,9 +326,9 @@ get_header(); ?>
                     <!-- ================================================================================================================== -->
                 </div><!-- .prawa -->
 
-              <a class="czytajWiecej" href="<?php echo esc_url( $permalink); ?>">Czytaj więcej</a>
-
               </article>
+
+              </a>
 
 
             <?php
