@@ -7,6 +7,9 @@ $kolorNakladany: #fff; //Teraz biały
 // Tło wydarzenia:
 $tloWydarzenia: #eee; //lekko szary
 
+// Standardowy kolor tła div.termin na liście wydarzeń (normalnie się nie wyświetla bo jest pobierany kolor na podstawie lokalizacji wydarzenia)
+$tloStandardDivTermin: #ccc;
+
 // USTAWIENIA SZEROKOŚCI, ODSTĘPÓW
 //używane w wydarzenia.php
 $padding-kolumny: 15px; //Wartość aktualnie nieużywana (na podstawie ustawień bootstrap) - potrzebna do wyliczania szerokości elementów wpisu "wydarzenie" na liście wydarzeń
@@ -16,6 +19,7 @@ $wydarzenie-thumb-height: 150px; //Wysokość obrazka thumb na liście wydarzeń
 $wydarzenie-termin-dzien-width: 120px; //Szerokość jednej kolumny (np. dnia lub godziny) w części terminu wydarzenia
 $wydarzenie-termin-dzien-height: 100px; //Wysokość kolumny (dnia i godziny) w części terminu wydarzenia
 $margines-bledu: 15px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
+$wydarzenia-odleglosc-na-liscie: 15px; //Odległość pomiędzy wpisami poszczególnych wydarzeń na liście wydarzeń
 
 
 @import "compass/utilities/general/clearfix";
@@ -30,6 +34,11 @@ body{
 
 h1,h2,h3,h4,h5,h6{
 	font-weight: 700;
+}
+
+// WIELKOŚĆ CZCIONEK
+h2{
+	font-size: 110%;
 }
 
 /*================MEDIA QUERIES za pomocą sass==================================*/
@@ -114,6 +123,7 @@ article.wydarzenie{
 	// Element (wpis) listy wydarzeń na stronie wydarzenia
 	@include clearfix;
 	background-color: $tloWydarzenia;
+	margin-top: $wydarzenia-odleglosc-na-liscie;
 
 	// Dla rozmiarów xxs, xs, sm części .lewa i .prawa są i tak na całą szerokość article.wydarzenie
 	// Dla rozmiarów lg i md zaczynają tworzyć pasek i wtedy dopiero używane są szerokości odpowiednich sekcji w pikselach
@@ -134,15 +144,21 @@ article.wydarzenie{
  
 	div.lewa{
 		width: 100%;
+		padding: 5px 10px 5px 0;
 
 		@include MQ(md){
 			width: $lewa-width;
 			float: left;
 		}
+
+		h2{
+			margin-top: 0;
+		}
 	}
 
 	div.prawa{
 		width: 100%;
+		background-color: $tloStandardDivTermin; //standardowy kolor, gdy nie wybrano lokalizacji wydarzenia
 
 		@include MQ(md){
 			width: $prawa-width;
@@ -184,6 +200,14 @@ article.wydarzenie{
 			height: $wydarzenie-height - $wydarzenie-termin-dzien-height;
 			float: right;
 		}
+	}
+
+	a.czytajWiecej{
+		position:absolute;
+		display:block;
+		width: 100%;
+		height: 100%;
+		border: 1px solid red;
 	}
 
 

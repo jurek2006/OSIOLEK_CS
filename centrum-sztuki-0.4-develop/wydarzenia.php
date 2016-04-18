@@ -88,6 +88,7 @@ get_header(); ?>
     
     	<section id="content-container" class="col-xs-12 col-lg-9">
 
+        <h1>Wydarzenia kulturalne Centum Sztuki w Oławie</h1>
 		<?php
 			if (!is_single()){
 			//Na wszelki wypadek sprawdza czy to jest lista wydarzeń
@@ -151,13 +152,12 @@ get_header(); ?>
 						
 						
 						            ?>
-            			<!-- <a href="<?php //echo esc_url( $permalink); ?>" rel="bookmark"></a> PO CO TO?-->
               <article class="wydarzenie">
 
                 <div class="lewa">
                 <!-- Lewa strona wpidu wydarzenia na liście wydarzeń -->
 
-                  <h1 class="tytul"> <?php _e( $title , 'PP2014' ); ?> </h1> <!-- Tytuł wydarzenia -->
+                  <h2 class="tytul"> <?php _e( $title , 'PP2014' ); ?> </h2> <!-- Tytuł wydarzenia -->
 
                   <!-- Kategorie wydarzenia -->
                   <div class="kategorie">
@@ -201,6 +201,12 @@ get_header(); ?>
                         ?>    <!--Zawartość div.termin-->
                                     
                                   <!-- TERMIN OPISOWY -->
+                                  <div class="termin-opisowy">
+                                      <p><?php echo $termin_opisowy ?></p>
+                                  </div>
+                                  <div class="termin-lokalizacja">
+                                          <p><?php echo $lokalizacje; ?><br /><?php echo $lokalizacje_adres; ?></p>
+                                  </div>
 
                                 <!--Koniec zawartości div.termin-->
                         <?php
@@ -213,6 +219,31 @@ get_header(); ?>
                                     
                                       <!-- TERMIN OD-DO -->
 
+                                    <div class="termin-dzien">
+
+                                        <!-- Data początku wydarzenia -->
+                                        <p><?php 
+                                          echo 'Od '.zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_rozpoczecia), TRUE).' ';
+                                          echo '<span class="dzien">'.pobieczCzescDaty('j',$dzien_rozpoczecia).'</span> ';
+                                          echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_rozpoczecia)).' ';
+                                          echo pobieczCzescDaty('Y',$dzien_rozpoczecia);
+                                        ?></p>
+                                    </div>
+                                    <div class="termin-dzien">
+
+                                        <!-- Data końca wydarzenia -->
+                                        <p><?php 
+                                          echo 'Do '.zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_zakonczenia), TRUE).' ';
+                                          echo '<span class="dzien">'.pobieczCzescDaty('j',$dzien_zakonczenia).'</span> ';
+                                          echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_zakonczenia)).' ';
+                                          echo pobieczCzescDaty('Y',$dzien_zakonczenia);
+                                        ?></p>
+
+                                    </div>
+                                    <div class="termin-lokalizacja">
+                                        <p><?php echo $lokalizacje; ?><br /><?php echo $lokalizacje_adres; ?></p>
+                                    </div>
+
                                   <!--Koniec zawartości div.termin-->
                         <?php
                             }//else if(!empty($dzien_zakonczenia) && !empty($dzien_rozpoczecia))
@@ -223,6 +254,20 @@ get_header(); ?>
                             <!--Zawartość div.termin-->
                                 
                                     <!-- TERMIN JEDNODNIOWY -->
+                                    <div class="termin-dzien">
+
+                                        <!-- Data początku wydarzenia -->
+                                        <p><?php 
+                                          echo zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_rozpoczecia)).' ';
+                                          echo '<span class="dzien">'.pobieczCzescDaty('j',$dzien_rozpoczecia).'</span> ';
+                                          echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_rozpoczecia)).' ';
+                                          echo pobieczCzescDaty('Y',$dzien_rozpoczecia);
+                                        ?></p>
+                                    </div>
+
+                                    <div class="termin-lokalizacja">
+                                        <p><?php echo $lokalizacje; ?><br /><?php echo $lokalizacje_adres; ?></p>
+                                    </div>
 
                             <!--Koniec zawartości div.termin-->
                         <?php
@@ -233,6 +278,8 @@ get_header(); ?>
                             {
                         ?>
                                 <!--Zawartość div.termin-->
+
+                                    <!-- TERMIN STANDARDOWY - z datą i godziną -->
                                 
                                     <div class="termin-dzien">
 
@@ -276,7 +323,11 @@ get_header(); ?>
                     <!-- ================================================================================================================== -->
                 </div><!-- .prawa -->
 
+              <a class="czytajWiecej" href="<?php echo esc_url( $permalink); ?>">Czytaj więcej</a>
+
               </article>
+
+
             <?php
 					}//while ( $pods->fetch() )
 				}//if ( $pods->total() > 0 )
