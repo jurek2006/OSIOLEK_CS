@@ -1,14 +1,20 @@
 /*Plik stylów wczytywany po bootstrapowym - Wczytywany po bootstrap.css*/
 
 // KOLORY:
+// Kolor tekstu - podstawowy
+$kolorTekstu: #333;
+
 // Kolor tekstu nakładany - używany na kolorowych paskach lokalizacji - terminu
-$kolorNakladany: #fff; //Teraz biały
+$kolorTekstNakladany: #fff; //Teraz biały
 
 // Tło wydarzenia:
 $tloWydarzenia: #eee; //lekko szary
 
 // Standardowy kolor tła div.termin na liście wydarzeń (normalnie się nie wyświetla bo jest pobierany kolor na podstawie lokalizacji wydarzenia)
 $tloStandardDivTermin: #ccc;
+
+// Tło przycisku "Kup bilet"
+$tloKupBilet: $kolorTekstu; //ustawiony na kolor podstawowy tekstu
 
 // USTAWIENIA SZEROKOŚCI, ODSTĘPÓW
 //używane w wydarzenia.php
@@ -21,19 +27,33 @@ $wydarzenie-termin-dzien-height: 100px; //Wysokość kolumny (dnia i godziny) w 
 $margines-bledu: 15px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
 $wydarzenia-odleglosc-na-liscie: 15px; //Odległość pomiędzy wpisami poszczególnych wydarzeń na liście wydarzeń
 
+$padding-kupBilety: 3px; //pading elementu "Kup bilety" na liście wydarzeń
+
+// GRUBOŚCI CZCIONEK
+$font-normal: 400;
+$font-bold:700;
+
+// WIELKOŚCI CZCIONEK I ODLEGŁOŚCI MIĘDZY LINIAMI
+// Wielkość podstawowa czcionki
+$font-size: 1.7em;
+// Wielkośc podstawowa czcionki w div.termin na liście wydarzeń i wysokość linii
+$wydarzenie-termin-font-size: 0.9em;
+$wydarzenie-termin-line-height: 1em;
+//duże - czyli cyfra dnia miesiąca i godzina wydarzenia
+$wydarzenie-termin-font-size-duze: 2em; 
 
 @import "compass/utilities/general/clearfix";
 
 // Użycie czcionki Magra
 body{
 	font-family: 'Magra', sans-serif;
-	font-weight:400;	/*also loaded 700 for bold*/
+	font-weight: $font-normal;	
 	font-size: 1.7em; /*zwiększenie czcionki*/
-	color: #333;
+	color: $kolorTekstu;
 }
 
 h1,h2,h3,h4,h5,h6{
-	font-weight: 700;
+	font-weight: $font-bold;
 }
 
 // WIELKOŚĆ CZCIONEK
@@ -118,106 +138,142 @@ $md: 1200px;
   margin: auto;
 }
 
+article.wydarzenie{
+	div.odnosnik{
+		// Element (wpis) listy wydarzeń na stronie wydarzenia
+		@include clearfix;
+		height: $wydarzenie-height;
 
-div.odnosnik{
-	// Element (wpis) listy wydarzeń na stronie wydarzenia
-	@include clearfix;
-	background-color: $tloWydarzenia;
-	margin-top: $wydarzenia-odleglosc-na-liscie;
+		background-color: $tloWydarzenia;
+		margin-top: $wydarzenia-odleglosc-na-liscie;
 
-	// Dla rozmiarów xxs, xs, sm części .lewa i .prawa są i tak na całą szerokość article.wydarzenie
-	// Dla rozmiarów lg i md zaczynają tworzyć pasek i wtedy dopiero używane są szerokości odpowiednich sekcji w pikselach
+		// Dla rozmiarów xxs, xs, sm części .lewa i .prawa są i tak na całą szerokość article.wydarzenie
+		// Dla rozmiarów lg i md zaczynają tworzyć pasek i wtedy dopiero używane są szerokości odpowiednich sekcji w pikselach
 
-	//Wyliczenie szerokości elementów dla ekranów o szerokości większej niż md
-	//Wyliczenie szerokości div.prawa:
+		//Wyliczenie szerokości elementów dla ekranów o szerokości większej niż md
+		//Wyliczenie szerokości div.prawa:
 
-	// $padding-kolumny: 15px; //Wartość aktualnie nieużywana (na podstawie ustawień bootstrap) - potrzebna do wyliczania szerokości elementów wpisu "wydarzenie" na liście wydarzeń
-	// $wydarzenie-thumb-width: 150px; //Szerokośc obrazka thumb na liście wydarzeń
-	// $wydarzenie-termin-dzien-width: 120px; //Szerokość jednej kolumny (np. dnia lub godziny) w części terminu wydarzenia
-	// $margines-bledu: 5px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
+		// $padding-kolumny: 15px; //Wartość aktualnie nieużywana (na podstawie ustawień bootstrap) - potrzebna do wyliczania szerokości elementów wpisu "wydarzenie" na liście wydarzeń
+		// $wydarzenie-thumb-width: 150px; //Szerokośc obrazka thumb na liście wydarzeń
+		// $wydarzenie-termin-dzien-width: 120px; //Szerokość jednej kolumny (np. dnia lub godziny) w części terminu wydarzenia
+		// $margines-bledu: 5px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
 
-	$prawa-width: 2 * $wydarzenie-termin-dzien-width + $wydarzenie-thumb-width + $margines-bledu;
+		$prawa-width: 2 * $wydarzenie-termin-dzien-width + $wydarzenie-thumb-width + $margines-bledu;
 
-	//Wyliczenie szerokości div.lewa:
-	//Wyliczane dla szerokości $md (z uwzględnieniem, że część na wydarzenia zajmuje 3/4 szerokości i biorąc pod uwagę padding)
-	$lewa-width: ($md - 4 * $padding-kolumny) * 3/4 - $prawa-width - $margines-bledu;
- 
-	div.lewa{
-		width: 100%;
-		padding: 5px 10px 5px 0;
+		//Wyliczenie szerokości div.lewa:
+		//Wyliczane dla szerokości $md (z uwzględnieniem, że część na wydarzenia zajmuje 3/4 szerokości i biorąc pod uwagę padding)
+		$lewa-width: ($md - 4 * $padding-kolumny) * 3/4 - $prawa-width - $margines-bledu;
+	 
+		div.lewa{
+			width: 100%;
+			padding: 5px 10px 5px 0;
 
-		@include MQ(md){
-			width: $lewa-width;
+			@include MQ(md){
+				width: $lewa-width;
+				float: left;
+			}
+
+			h2{
+				margin-top: 0;
+			}
+		}
+
+		div.prawa{
+			width: 100%;
+			background-color: $tloStandardDivTermin; //standardowy kolor, gdy nie wybrano lokalizacji wydarzenia
+
+			@include MQ(md){
+				width: $prawa-width;
+				float: right;
+			}
+		}
+
+		div.termin{
+			//Część "kolorowa" wydarzenia - zawierająca informację na temat terminu - czyli kiedy i gdzie - kolor jest nadawany w HTML na podstawie koloru lokalizacji wydarzenia
+			margin-top: 5px;
+			margin-left: 10px;
+			font-size: $wydarzenie-termin-font-size;
+			line-height: $wydarzenie-termin-line-height;
+
+			color: $kolorTekstNakladany;
+
+			@include MQ(md){
+				width: 2 * $wydarzenie-termin-dzien-width;
+				float: left;
+			}
+
+			span.dzien, span.godziny{
+				// display: block;
+				font-size: $wydarzenie-termin-font-size-duze;
+				margin-top: 5px;
+				margin-bottom: 15px;
+			}
+
+			span.dzien{
+				display: block;
+			}
+
+			span.godziny{
+				border: 1px solid yellow; //TESTOWE
+				/* display: block;
+				float: left; */
+			}
+
+			span.minuty{
+				border: 1px solid yellow; //TESTOWE
+				/* display: block;
+				float: left;
+ */			}
+		}
+
+		img.thumb{
 			float: left;
+			width: $wydarzenie-thumb-width; 
+			height: $wydarzenie-thumb-height;
 		}
 
-		h2{
-			margin-top: 0;
-		}
-	}
-
-	div.prawa{
-		width: 100%;
-		background-color: $tloStandardDivTermin; //standardowy kolor, gdy nie wybrano lokalizacji wydarzenia
-
-		@include MQ(md){
-			width: $prawa-width;
-			float: right;
-		}
-	}
-
-	div.termin{
-		//Część "kolorowa" wydarzenia - zawierająca informację na temat terminu - czyli kiedy i gdzie - kolor jest nadawany w HTML na podstawie koloru lokalizacji wydarzenia
-
-		color: $kolorNakladany;
-
-		@include MQ(md){
-			width: 2 * $wydarzenie-termin-dzien-width;
-			float: right;
+		div.termin-dzien, div.termin-godz{
+			@include MQ(md){
+				width: $wydarzenie-termin-dzien-width;
+				height: $wydarzenie-termin-dzien-height;
+				float: left;
+			}
 		}
 
-		span.dzien{
-			border: 1px solid green;
+		div.termin-lokalizacja{
+			@include MQ(md){
+				width: 2 * $wydarzenie-termin-dzien-width;
+				height: $wydarzenie-height - $wydarzenie-termin-dzien-height;
+				float: right;
+			}
+		}
+
+		a.czytajWiecej{
+			 border: 1px solid green;
+		}
+
+	}
+
+	// Częśc odpowiadająca za "przycisk Kup bilety" (lub odpowiadający komunikat)
+	div.bilety{
+
+		span{
+			background-color: $tloKupBilet;
+			color: $kolorTekstNakladany;
+			padding: $padding-kupBilety;
+
+			-webkit-border-bottom-right-radius: 5px;
+			-webkit-border-bottom-left-radius: 5px;
+			-moz-border-radius-bottomright: 5px;
+			-moz-border-radius-bottomleft: 5px;
+			border-bottom-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+
+		span.kup-bilet{
+			font-weight: $font-bold;
 		}
 	}
-
-	img.thumb{
-		width: $wydarzenie-thumb-width; 
-		height: $wydarzenie-thumb-height;
-	}
-
-	div.termin-dzien, div.termin-godz{
-		@include MQ(md){
-			width: $wydarzenie-termin-dzien-width;
-			height: $wydarzenie-termin-dzien-height;
-			float: left;
-		}
-	}
-
-	div.termin-lokalizacja{
-		@include MQ(md){
-			width: 2 * $wydarzenie-termin-dzien-width;
-			height: $wydarzenie-height - $wydarzenie-termin-dzien-height;
-			float: right;
-		}
-	}
-
-	a.czytajWiecej{
-		// position:absolute;
-		// display:block;
-		// width: 100%;
-		// height: 100%;
-		 border: 1px solid green;
-	}
-
-	div.TEST{
-		// display:block;
-		// border: 1px solid blue;
-		// background-color: yellow;
-	}
-
-
-
 }
 
 /*================koniec WYDARZENIA==================================*/
