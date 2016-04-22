@@ -167,7 +167,7 @@ get_header(); ?>
                             if(!empty($kategorie_slug[$i]))
                             {
                                 // echo '<a href="'.home_url().'/kategorie_wydarzen/'.$kategorie_slug[$i].'/" class="kategoria">'.$kategorie_name[$i].'</a> ';
-                              echo $kategorie_name[$i];
+                              echo '<span class="label label-danger">'.$kategorie_name[$i].'</span>';
                             }
                         }?>
                       </div> <!-- .lewa -->
@@ -350,11 +350,11 @@ get_header(); ?>
                                //z opublikowaniem
                                if($id_w_sprzedazy_online > 0){
                                  //jeśli podano konkretny ID w sprzedaży
-                                  echo '<span class="kup-bilet"><a href="http://www.systembiletowy.pl/cso/index.php/repertoire.html?id='.$id_w_sprzedazy_online.'">Kup bilety</a></span>';
+                                  echo '<a class="kup-bilet"href="http://www.systembiletowy.pl/cso/index.php/repertoire.html?id='.$id_w_sprzedazy_online.'">Kup bilety</a>';
                                }
                                else{
                                  //jeśli nie podano konkretnego ID w sprzedaży - link do całego repertuaru w sprzedaży
-                                 echo '<span class="kup-bilet"><a href="'.home_url().'/bilety-online/">Kup bilety</a></span>';
+                                 echo '<a class="kup-bilet" href="'.home_url().'/bilety-online/">Kup bilety</a>';
                                }
                              }
                              else{

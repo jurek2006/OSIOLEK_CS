@@ -32,8 +32,6 @@ $wydarzenie-termin-dzien-height: 100px; //Wysokość kolumny (dnia i godziny) w 
 $margines-bledu: 15px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
 $wydarzenia-odleglosc-na-liscie: 15px; //Odległość pomiędzy wpisami poszczególnych wydarzeń na liście wydarzeń
 
-$padding-kupBilety: 5px; //pading elementu "Kup bilety" na liście wydarzeń
-
 // GRUBOŚCI CZCIONEK
 $font-normal: 400;
 $font-bold:700;
@@ -48,6 +46,9 @@ $wydarzenie-termin-line-height: 1em;
 $wydarzenie-termin-font-size-duze: 2.5em; 
 // mniejsze - czyli liczba minut
 $wydarzenie-termin-font-size-mniejsze: 0.75em;  //zmniejszenie względem duże jw.
+//wielkość czcionki w opisie wydarzenia na liście wydarzeń i wysokość linii
+$opis-wydarzenia-font-size: 1em;
+$opis-wydarzenia-line-height: 1.1em;
 
 @import "compass/utilities/general/clearfix";
 
@@ -131,6 +132,23 @@ $md: 1200px;
 
 /*================koniec MEDIA QUERIES za pomocą sass===========================*/
 
+/*================ETYKIETY przy użyciu bootstrap==================================*/
+/*================koniec ETYKIETY ==================================*/
+.label{
+	margin-right: 3px;
+	font-weight: $font-normal;
+}
+
+/*================MIXINS - "domieszki"==================================*/
+@mixin bottom-radius($radius){
+	-webkit-border-bottom-right-radius: $radius;
+	-webkit-border-bottom-left-radius: $radius;
+	-moz-border-radius-bottomright: $radius;
+	-moz-border-radius-bottomleft: $radius;
+	border-bottom-right-radius: $radius;
+	border-bottom-left-radius: $radius;
+}
+
 /*================WYDARZENIA==================================*/
 
 // Klasa trzech wyróżników ("kółek") na stronie wydarzeń
@@ -172,8 +190,10 @@ article.wydarzenie{
 		$lewa-width: ($md - 4 * $padding-kolumny) * 3/4 - $prawa-width - $margines-bledu;
 	 
 		div.lewa{
+			//border: 1px solid red; //TESTOWE
 			width: 100%;
-			padding: 5px 10px 5px 0;
+			padding: 5px 10px 5px 10px;
+			color: $kolorTekstu;
 
 			@include MQ(md){
 				width: $lewa-width;
@@ -182,6 +202,19 @@ article.wydarzenie{
 
 			h2{
 				margin-top: 0;
+				//border: 1px solid red; //TESTOWE
+				margin-bottom: 10px;
+			}
+
+			div.kategorie{
+				//border: 1px solid red; //TESTOWE
+				padding: 0;
+				margin-bottom: 10px;
+			}
+
+			div.opis{
+				font-size: $opis-wydarzenia-font-size;
+				line-height: $opis-wydarzenia-line-height;
 			}
 		}
 
@@ -272,28 +305,19 @@ article.wydarzenie{
 	div.bilety{
 		@include clearfix;
 
-		span{
-			display: block;
+		a, span{
 			background-color: $tloInfoBilety;
 			color: $kolorTekstuInfoBilety;
-			padding: $padding-kupBilety;
+			padding: 3px 10px 3px 10px;
+			display: inline-block;
 
-			-webkit-border-bottom-right-radius: 15px;
-			-webkit-border-bottom-left-radius: 15px;
-			-moz-border-radius-bottomright: 15px;
-			-moz-border-radius-bottomleft: 15px;
-			border-bottom-right-radius: 15px;
-			border-bottom-left-radius: 15px;
+			@include bottom-radius(10px); //zaokrąglenie dolnej części elementu kup bilet/informacji o biletach za pomocą mixin bottom-radius($radius)
 		}
 
-		span.kup-bilet{
+		a.kup-bilet{
 			background-color: $tloKupBilet;
 			color: $kolorTekstNakladany;
 			font-weight: $font-bold;
-
-			a{
-				color: $kolorTekstuKupBilet;
-			}
 		}
 	}
 }
