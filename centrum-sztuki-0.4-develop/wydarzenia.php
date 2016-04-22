@@ -287,21 +287,18 @@ get_header(); ?>
                                         <div class="termin-dzien">
 
                                             <!-- Data wydarzenia -->
-                                            <p><?php 
-                                              echo zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$data_i_godzina_wydarzenia)).'<br>';
-                                              echo '<span class="dzien">'.pobieczCzescDaty('j',$data_i_godzina_wydarzenia).'</span> ';
-                                              echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$data_i_godzina_wydarzenia)).'<br>';
-                                              echo pobieczCzescDaty('Y',$data_i_godzina_wydarzenia);
-                                            ?></p>
+                                            <p><?php echo zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$data_i_godzina_wydarzenia)); ?></p>
+                                            <p class="dzien"><?php echo pobieczCzescDaty('j',$data_i_godzina_wydarzenia); ?></p>
+                                            <p><?php echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$data_i_godzina_wydarzenia)); ?></p>
+                                            <p><?php echo pobieczCzescDaty('Y',$data_i_godzina_wydarzenia); ?></p>
                                         </div>
                                         <div class="termin-godz">
 
                                             <!-- Godzina wydarzenia -->
-                                            <p><?php
-                                              echo 'godz:<br>'; 
-                                              echo '<span class="godziny">'.pobieczCzescDaty('G',$data_i_godzina_wydarzenia).'</span>';
-                                              echo '<span class="hidden">:</span>'; //Ukryty span - gdy nie ma wczytanych stylów wyświetla : w godzinie 00:00
-                                              echo '<span class="minuty">'.pobieczCzescDaty('i',$data_i_godzina_wydarzenia).'</span>';
+                                            <p>godz:</p>
+                                            <p class="godziny"><?php  echo '<span class="godziny">'.pobieczCzescDaty('G',$data_i_godzina_wydarzenia).'</span>';
+                                                      echo '<span class="hidden">:</span>'; //Ukryty span - gdy nie ma wczytanych stylów wyświetla : w godzinie 00:00
+                                                      echo '<span class="minuty">'.pobieczCzescDaty('i',$data_i_godzina_wydarzenia).'</span>';
                                             ?></p>
 
                                         </div>

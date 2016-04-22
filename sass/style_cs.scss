@@ -40,7 +40,9 @@ $font-size: 1.7em;
 $wydarzenie-termin-font-size: 0.9em;
 $wydarzenie-termin-line-height: 1em;
 //duże - czyli cyfra dnia miesiąca i godzina wydarzenia
-$wydarzenie-termin-font-size-duze: 2em; 
+$wydarzenie-termin-font-size-duze: 2.5em; 
+// mniejsze - czyli liczba minut
+$wydarzenie-termin-font-size-mniejsze: 0.75em;  //zmniejszenie względem duże jw.
 
 @import "compass/utilities/general/clearfix";
 
@@ -202,34 +204,40 @@ article.wydarzenie{
 				float: left;
 			}
 
-			span.dzien, span.godziny{
-				// display: block;
-				font-size: $wydarzenie-termin-font-size-duze;
-				margin-top: 5px;
-				margin-bottom: 15px;
+			span.etykieta{
+				display: block; //Dla etykiety wymuszenie następnego elementu (liczby dnia lub godziny) w nowej linii
 			}
 
-			span.dzien{
-				display: block;
+			p.dzien, p.godziny{
+				font-size: $wydarzenie-termin-font-size-duze;
+				margin-top: 10px;
+				margin-bottom: 20px;
 			}
 
 			span.godziny{
-				border: 1px solid yellow; //TESTOWE
-				/* display: block;
-				float: left; */
+				display: block;
+				float: left;
 			}
 
 			span.minuty{
-				border: 1px solid yellow; //TESTOWE
-				/* display: block;
+				font-size: $wydarzenie-termin-font-size-mniejsze;
+				margin-top: -0.25em; //podsunięcie wyżej mniejszych cyfr minut względem większych godzin
+				margin-left: 0.1em;
+				display: block;
 				float: left;
- */			}
+			}
 		}
 
 		img.thumb{
 			float: left;
 			width: $wydarzenie-thumb-width; 
 			height: $wydarzenie-thumb-height;
+		}
+
+		div.termin-dzien{
+			p{
+				margin: 0; //margines zmniejszający odległość pomiędzy miesiącem a rokiem (liniami)
+			}
 		}
 
 		div.termin-dzien, div.termin-godz{
@@ -241,6 +249,7 @@ article.wydarzenie{
 		}
 
 		div.termin-lokalizacja{
+			text-align: center;
 			@include MQ(md){
 				width: 2 * $wydarzenie-termin-dzien-width;
 				height: $wydarzenie-height - $wydarzenie-termin-dzien-height;
