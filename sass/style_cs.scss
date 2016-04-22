@@ -13,8 +13,13 @@ $tloWydarzenia: #eee; //lekko szary
 // Standardowy kolor tła div.termin na liście wydarzeń (normalnie się nie wyświetla bo jest pobierany kolor na podstawie lokalizacji wydarzenia)
 $tloStandardDivTermin: #ccc;
 
-// Tło przycisku "Kup bilet"
+// Tło przycisku "Kup bilet" i kolor tekstu na nich
 $tloKupBilet: $kolorTekstu; //ustawiony na kolor podstawowy tekstu
+$kolorTekstuKupBilet: $kolorTekstNakladany;
+
+// Tło komunikatu o biletach wydarzenia na liście wydarzeń i kolor tekstu
+$tloInfoBilety: $tloWydarzenia; //ustawiony na kolor wydarzenia
+$kolorTekstuInfoBilety: $kolorTekstu; //ustawiony na podstawowy kolor tekstu
 
 // USTAWIENIA SZEROKOŚCI, ODSTĘPÓW
 //używane w wydarzenia.php
@@ -27,7 +32,7 @@ $wydarzenie-termin-dzien-height: 100px; //Wysokość kolumny (dnia i godziny) w 
 $margines-bledu: 15px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
 $wydarzenia-odleglosc-na-liscie: 15px; //Odległość pomiędzy wpisami poszczególnych wydarzeń na liście wydarzeń
 
-$padding-kupBilety: 3px; //pading elementu "Kup bilety" na liście wydarzeń
+$padding-kupBilety: 5px; //pading elementu "Kup bilety" na liście wydarzeń
 
 // GRUBOŚCI CZCIONEK
 $font-normal: 400;
@@ -265,22 +270,30 @@ article.wydarzenie{
 
 	// Częśc odpowiadająca za "przycisk Kup bilety" (lub odpowiadający komunikat)
 	div.bilety{
+		@include clearfix;
 
 		span{
-			background-color: $tloKupBilet;
-			color: $kolorTekstNakladany;
+			display: block;
+			background-color: $tloInfoBilety;
+			color: $kolorTekstuInfoBilety;
 			padding: $padding-kupBilety;
 
-			-webkit-border-bottom-right-radius: 5px;
-			-webkit-border-bottom-left-radius: 5px;
-			-moz-border-radius-bottomright: 5px;
-			-moz-border-radius-bottomleft: 5px;
-			border-bottom-right-radius: 5px;
-			border-bottom-left-radius: 5px;
+			-webkit-border-bottom-right-radius: 15px;
+			-webkit-border-bottom-left-radius: 15px;
+			-moz-border-radius-bottomright: 15px;
+			-moz-border-radius-bottomleft: 15px;
+			border-bottom-right-radius: 15px;
+			border-bottom-left-radius: 15px;
 		}
 
 		span.kup-bilet{
+			background-color: $tloKupBilet;
+			color: $kolorTekstNakladany;
 			font-weight: $font-bold;
+
+			a{
+				color: $kolorTekstuKupBilet;
+			}
 		}
 	}
 }

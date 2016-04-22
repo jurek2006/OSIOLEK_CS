@@ -225,22 +225,20 @@ get_header(); ?>
                                         <div class="termin-dzien">
 
                                             <!-- Data początku wydarzenia -->
-                                            <p><?php 
-                                              echo 'Od '.zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_rozpoczecia), TRUE).'<br>';
-                                              echo '<span class="dzien">'.pobieczCzescDaty('j',$dzien_rozpoczecia).'</span> ';
-                                              echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_rozpoczecia)).'<br>';
-                                              echo pobieczCzescDaty('Y',$dzien_rozpoczecia);
-                                            ?></p>
+
+                                            <p><?php echo 'Od '.zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_rozpoczecia),TRUE); ?></p>
+                                            <p class="dzien"><?php echo pobieczCzescDaty('j',$dzien_rozpoczecia); ?></p>
+                                            <p><?php echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_rozpoczecia)); ?></p>
+                                            <p><?php echo pobieczCzescDaty('Y',$dzien_rozpoczecia); ?></p>
+
                                         </div>
                                         <div class="termin-dzien">
 
                                             <!-- Data końca wydarzenia -->
-                                            <p><?php 
-                                              echo 'Do '.zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_zakonczenia), TRUE).'<br>';
-                                              echo '<span class="dzien">'.pobieczCzescDaty('j',$dzien_zakonczenia).'</span> ';
-                                              echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_zakonczenia)).'<br>';
-                                              echo pobieczCzescDaty('Y',$dzien_zakonczenia);
-                                            ?></p>
+                                            <p><?php echo 'Do '.zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_zakonczenia),TRUE); ?></p>
+                                            <p class="dzien"><?php echo pobieczCzescDaty('j',$dzien_zakonczenia); ?></p>
+                                            <p><?php echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_zakonczenia)); ?></p>
+                                            <p><?php echo pobieczCzescDaty('Y',$dzien_zakonczenia); ?></p>
 
                                         </div>
                                         <div class="termin-lokalizacja">
@@ -259,13 +257,11 @@ get_header(); ?>
                                         <!-- TERMIN JEDNODNIOWY -->
                                         <div class="termin-dzien">
 
-                                            <!-- Data początku wydarzenia -->
-                                            <p><?php 
-                                              echo zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_rozpoczecia)).'<br>';
-                                              echo '<span class="dzien">'.pobieczCzescDaty('j',$dzien_rozpoczecia).'</span> ';
-                                              echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_rozpoczecia)).'<br>';
-                                              echo pobieczCzescDaty('Y',$dzien_rozpoczecia);
-                                            ?></p>
+                                            <!-- Dzień wydarzenia wydarzenia -->
+                                            <p><?php echo 'Od '.zamienDzienTygodniaLiczbowyNaSlowny(pobieczCzescDaty('w',$dzien_rozpoczecia),TRUE); ?></p>
+                                            <p class="dzien"><?php echo pobieczCzescDaty('j',$dzien_rozpoczecia); ?></p>
+                                            <p><?php echo ZamienMiesiacLiczbowyNaSlownyOdmieniony(pobieczCzescDaty('m',$dzien_rozpoczecia)); ?></p>
+                                            <p><?php echo pobieczCzescDaty('Y',$dzien_rozpoczecia); ?></p>
                                         </div>
 
                                         <div class="termin-lokalizacja">

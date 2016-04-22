@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*Plik styl├│w wczytywany po bootstrapowym - Wczytywany po bootstrap.css*/
-/* line 50, ../../sass/style_cs.scss */
+/* line 55, ../../sass/style_cs.scss */
 body {
   font-family: 'Magra', sans-serif;
   font-weight: 400;
@@ -9,12 +9,12 @@ body {
   color: #333;
 }
 
-/* line 57, ../../sass/style_cs.scss */
+/* line 62, ../../sass/style_cs.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* line 62, ../../sass/style_cs.scss */
+/* line 67, ../../sass/style_cs.scss */
 h2 {
   font-size: 110%;
 }
@@ -22,18 +22,18 @@ h2 {
 /*================MEDIA QUERIES za pomoc─ů sass==================================*/
 /*================koniec MEDIA QUERIES za pomoc─ů sass===========================*/
 /*================WYDARZENIA==================================*/
-/* line 132, ../../sass/style_cs.scss */
+/* line 137, ../../sass/style_cs.scss */
 .wyrozniki {
   margin: 5em 0 5em 0;
   text-align: center;
 }
 
-/* line 139, ../../sass/style_cs.scss */
+/* line 144, ../../sass/style_cs.scss */
 .carousel-inner img {
   margin: auto;
 }
 
-/* line 144, ../../sass/style_cs.scss */
+/* line 149, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik {
   overflow: hidden;
   *zoom: 1;
@@ -41,35 +41,35 @@ article.wydarzenie div.odnosnik {
   background-color: #eee;
   margin-top: 15px;
 }
-/* line 169, ../../sass/style_cs.scss */
+/* line 174, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa {
   width: 100%;
   padding: 5px 10px 5px 0;
 }
 @media only screen and (min-width: 992px) {
-  /* line 169, ../../sass/style_cs.scss */
+  /* line 174, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.lewa {
     width: 435px;
     float: left;
   }
 }
-/* line 178, ../../sass/style_cs.scss */
+/* line 183, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa h2 {
   margin-top: 0;
 }
-/* line 183, ../../sass/style_cs.scss */
+/* line 188, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.prawa {
   width: 100%;
   background-color: #ccc;
 }
 @media only screen and (min-width: 992px) {
-  /* line 183, ../../sass/style_cs.scss */
+  /* line 188, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.prawa {
     width: 405px;
     float: right;
   }
 }
-/* line 193, ../../sass/style_cs.scss */
+/* line 198, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin {
   margin-top: 5px;
   margin-left: 10px;
@@ -78,28 +78,28 @@ article.wydarzenie div.odnosnik div.termin {
   color: #fff;
 }
 @media only screen and (min-width: 992px) {
-  /* line 193, ../../sass/style_cs.scss */
+  /* line 198, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin {
     width: 240px;
     float: left;
   }
 }
-/* line 207, ../../sass/style_cs.scss */
+/* line 212, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin span.etykieta {
   display: block;
 }
-/* line 211, ../../sass/style_cs.scss */
+/* line 216, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin p.dzien, article.wydarzenie div.odnosnik div.termin p.godziny {
   font-size: 2.5em;
   margin-top: 10px;
   margin-bottom: 20px;
 }
-/* line 217, ../../sass/style_cs.scss */
+/* line 222, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin span.godziny {
   display: block;
   float: left;
 }
-/* line 222, ../../sass/style_cs.scss */
+/* line 227, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin span.minuty {
   font-size: 0.75em;
   margin-top: -0.25em;
@@ -107,55 +107,67 @@ article.wydarzenie div.odnosnik div.termin span.minuty {
   display: block;
   float: left;
 }
-/* line 231, ../../sass/style_cs.scss */
+/* line 236, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik img.thumb {
   float: left;
   width: 150px;
   height: 150px;
 }
-/* line 238, ../../sass/style_cs.scss */
+/* line 243, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin-dzien p {
   margin: 0;
 }
 @media only screen and (min-width: 992px) {
-  /* line 243, ../../sass/style_cs.scss */
+  /* line 248, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosnik div.termin-godz {
     width: 120px;
     height: 100px;
     float: left;
   }
 }
-/* line 251, ../../sass/style_cs.scss */
+/* line 256, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin-lokalizacja {
   text-align: center;
 }
 @media only screen and (min-width: 992px) {
-  /* line 251, ../../sass/style_cs.scss */
+  /* line 256, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-lokalizacja {
     width: 240px;
     height: 50px;
     float: right;
   }
 }
-/* line 260, ../../sass/style_cs.scss */
+/* line 265, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik a.czytajWiecej {
   border: 1px solid green;
 }
-/* line 269, ../../sass/style_cs.scss */
+/* line 272, ../../sass/style_cs.scss */
+article.wydarzenie div.bilety {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 275, ../../sass/style_cs.scss */
 article.wydarzenie div.bilety span {
+  display: block;
+  background-color: #eee;
+  color: #333;
+  padding: 5px;
+  -webkit-border-bottom-right-radius: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+/* line 289, ../../sass/style_cs.scss */
+article.wydarzenie div.bilety span.kup-bilet {
   background-color: #333;
   color: #fff;
-  padding: 3px;
-  -webkit-border-bottom-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-/* line 282, ../../sass/style_cs.scss */
-article.wydarzenie div.bilety span.kup-bilet {
   font-weight: 700;
+}
+/* line 294, ../../sass/style_cs.scss */
+article.wydarzenie div.bilety span.kup-bilet a {
+  color: #fff;
 }
 
 /*================koniec WYDARZENIA==================================*/
