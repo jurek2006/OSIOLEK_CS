@@ -1,0 +1,196 @@
+@charset "UTF-8";
+/*Plik styl├│w wczytywany po bootstrapowym - Wczytywany po bootstrap.css*/
+/* line 57, ../../sass/style_cs.scss */
+body {
+  font-family: 'Magra', sans-serif;
+  font-weight: 400;
+  font-size: 1.7em;
+  /*zwi─Ökszenie czcionki*/
+  color: #333;
+}
+
+/* line 64, ../../sass/style_cs.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/* line 69, ../../sass/style_cs.scss */
+h2 {
+  font-size: 110%;
+}
+
+/*================MEDIA QUERIES za pomoc─ů sass==================================*/
+/*================koniec MEDIA QUERIES za pomoc─ů sass===========================*/
+/*================ETYKIETY przy u┼╝yciu bootstrap==================================*/
+/*================koniec ETYKIETY ==================================*/
+/* line 138, ../../sass/style_cs.scss */
+.label {
+  margin-right: 3px;
+  font-weight: 400;
+}
+
+/*================MIXINS - "domieszki"==================================*/
+/*================WYDARZENIA==================================*/
+/* line 156, ../../sass/style_cs.scss */
+.wyrozniki {
+  margin: 5em 0 5em 0;
+  text-align: center;
+}
+
+/* line 163, ../../sass/style_cs.scss */
+.carousel-inner img {
+  margin: auto;
+}
+
+/* line 168, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik {
+  overflow: hidden;
+  *zoom: 1;
+  height: 150px;
+  border: none;
+  border-left: 5px solid;
+  background-color: #eee;
+  margin-top: 10px;
+  border-color: #ccc;
+}
+/* line 195, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.lewa {
+  width: 100%;
+  padding: 5px 10px 5px 10px;
+  color: #333;
+}
+@media only screen and (min-width: 992px) {
+  /* line 195, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik div.lewa {
+    width: 435px;
+    float: left;
+  }
+}
+/* line 206, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.lewa h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+/* line 212, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.lewa div.kategorie {
+  padding: 0;
+  margin-bottom: 10px;
+}
+/* line 218, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.lewa div.opis {
+  font-size: 1em;
+  line-height: 1.1em;
+}
+/* line 224, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.prawa {
+  width: 100%;
+  background-color: #ccc;
+}
+@media only screen and (min-width: 992px) {
+  /* line 224, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik div.prawa {
+    width: 405px;
+    float: right;
+  }
+}
+/* line 234, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.termin {
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 0.9em;
+  line-height: 1em;
+  color: #fff;
+}
+@media only screen and (min-width: 992px) {
+  /* line 234, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik div.termin {
+    width: 240px;
+    float: left;
+  }
+}
+/* line 248, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.termin span.etykieta {
+  display: block;
+}
+/* line 252, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.termin p.dzien, article.wydarzenie div.odnosnik div.termin p.godziny {
+  font-size: 2.5em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+/* line 258, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.termin span.godziny {
+  display: block;
+  float: left;
+}
+/* line 263, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.termin span.minuty {
+  font-size: 0.75em;
+  margin-top: -0.25em;
+  margin-left: 0.1em;
+  display: block;
+  float: left;
+}
+/* line 272, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik img.thumb {
+  float: left;
+  width: 150px;
+  height: 150px;
+}
+/* line 279, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.termin-dzien p {
+  margin: 0;
+}
+@media only screen and (min-width: 992px) {
+  /* line 284, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosnik div.termin-godz {
+    width: 120px;
+    height: 100px;
+    float: left;
+  }
+}
+/* line 292, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.termin-lokalizacja {
+  text-align: center;
+}
+@media only screen and (min-width: 992px) {
+  /* line 292, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik div.termin-lokalizacja {
+    width: 240px;
+    height: 50px;
+    float: right;
+  }
+}
+/* line 301, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik a.czytajWiecej {
+  border: 1px solid green;
+}
+/* line 308, ../../sass/style_cs.scss */
+article.wydarzenie div.bilety {
+  overflow: hidden;
+  *zoom: 1;
+  border-color: #ccc;
+}
+/* line 312, ../../sass/style_cs.scss */
+article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
+  background-color: #eee;
+  color: #333;
+  padding: 3px 10px 3px 10px;
+  display: inline-block;
+  border-left: 5px solid;
+  border-color: inherit;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/* line 323, ../../sass/style_cs.scss */
+article.wydarzenie div.bilety a.kup-bilet {
+  background-color: #333;
+  color: #fff;
+  font-weight: 700;
+}
+
+/*================koniec WYDARZENIA==================================*/
