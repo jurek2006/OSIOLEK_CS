@@ -2,6 +2,8 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
     <?php  
 		//Tytuł - ustawiany na podstawie tego, co jest otwarte, tutaj dodawany jest początek do tytułu
@@ -67,61 +69,64 @@
     
 	
 </head>
-<?php 
-//Jeśli jest to przeglądarka mobilna to do klas elementu body dodawana jest klasa 'is_mobile'
-$klasa_mobile = NULL;
-if (wp_is_mobile() ) {
-	$klasa_mobile = 'is_mobile';
-}//if (wp_is_mobile() )?>
 
-<body <?php body_class($klasa_mobile); ?>> 
+<body> 
 
-    <!-- Skrypt dodający klasę sticky do div#header-wrap - wyłączony jeśli przeglądarka zgłasza się jako mobilna -->
-    <?php if (!wp_is_mobile() ){
-			printf('<script>   
-						jQuery(window).scroll(function() {
-							if (jQuery(this).scrollTop() > 1){  
-								jQuery(\'div#header-wrap\').addClass("sticky");
-								
-							}
-							else{
-								jQuery(\'div#header-wrap\').removeClass("sticky");
-							}
-						});
-					</script>');
-		}//if (!wp_is_mobile() )
-    ?>
+<!-- Górne menu nawigacyjne przy użyciu bootstrap 
+		Na podstawie https://github.com/twittem/wp-bootstrap-navwalker/
+ -->
 
-<div id="header-wrap">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
+<!-- Brand and toggle get grouped for better mobile display --> 
+
+	<div class="container">
+		<div class="col-xs-12">
+		  <div class="navbar-header"> 
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> 
+		      <span class="sr-only">Toggle navigation</span> 
+		      <span class="icon-bar"></span> 
+		      <span class="icon-bar"></span> 
+		      <span class="icon-bar"></span> 
+		    </button> 
+		    <a class="navbar-brand" href="<?php bloginfo('url')?>"><?php bloginfo('name')?></a>
+		  </div> 
+		  <!-- Collect the nav links, forms, and other content for toggling --> 
+		  <div class="collapse navbar-collapse navbar-ex1-collapse"> 
+
+				 <?php
+				 	$uzywane_menu = 'top-navigation';
+				 	if (current_user_can( UPR_MENU_USER )){
+						//jeśli jest zalogowany użytkownik o uprawnieniach do publikacji postów (co najmniej Autor) to wyświetlane jest specjalne menu główne zamiast standardowego
+						$uzywane_menu = 'top-user-navigation';
+					}
+
+		            wp_nav_menu( array(
+		                'menu'              => $uzywane_menu,
+		                'theme_location'    => $uzywane_menu,
+		                'depth'             => 2,
+		                'container'         => 'div',
+		                'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
+		        		'container_id'      => 'bs-example-navbar-collapse-1',
+		                'menu_class'        => 'nav navbar-nav',
+		                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+		                'walker'            => new wp_bootstrap_navwalker())
+		            );
+		        ?>
+		  </div>
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+<div id="header-wrap" class="container">
         	<header class="clearfix">
-            	<a href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/style/logo_pegaz_header.png" alt="Centrum Sztuki w Oławie" /></a> 
+            	
                
-                
-                <?php 
-					 
-					//Górne menu nawigacyjne
-					
-					if (current_user_can( UPR_MENU_USER )){
-					//jeśli jest zalogowany użytkownik o uprawnieniach do publikacji postów (co najmniej Autor) to wyświetlane jest specjalne
-					//menu główne
-						wp_nav_menu( array(
-							'theme_location' => 'top-user-navigation',
-							'container' => 'nav',
-							'menu_class' => 'primary-nav')
-						);
-					}
-					else{
-					//jeśli nie jest zalogowany użytkownik o uprawnieniach do publikacji postów - wyświetlane jest standardowe menu główne
-						wp_nav_menu( array(
-							'theme_location' => 'top-navigation',
-							'container' => 'nav',
-							'menu_class' => 'primary-nav')
-						);
-					}
-					
-					
-				?>
-                <!--BUTTON UŻYWANY W MOBILE MENU <button class="nav-button">Toggle Button</button>-->
             </header>
 </div><!-- #header-wrap-->
 

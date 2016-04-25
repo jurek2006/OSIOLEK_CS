@@ -1,104 +1,102 @@
 ﻿<?php
 /*
 Template Name: Wydarzenia
-Description: Obsługuje stronę listy wydarzeń stylu Centrum Sztuki w Oławie korzystając z pods wydarzenia oraz pods kategorie (dla kategorii wydarzeń).
+Description: Obsługuje stronę listy wydarzeń stylu Centrum Sztuki w Oławie korzystając z pods wydarzenia. (Usunięto obsługę kategorii wydarzeń)
 Pojedyncze wydarzenie obsługiwane są przez wydarzenia_single.php
 */
 
 get_header(); ?>
 
-<!--Fragment dla listy wydarzeń - dodaje pasek wyświetlający jaka jest wybrana kategoria i umożliwiający jej zmianę -->
+<!-- Karuzela testowa -->
 
-<?php
-			if (!is_single()){
-			//Na wszelki wypadek sprawdza czy to jest lista wydarzeń
-				
-				//pobranie listy zdefiniowane_kategorie_wydarzen z pods kategorie
-				//lista ta posłuży do sprawdzenia, czy wybrano którąś ze zdefiniowanych kategorii wydarzeń
-				//jeśli nie, traktowane jest to, jako wyświetlanie wszystkich wydarzeń
-				//jeśli tak - tworzony jest pasek wyświetlający wybraną kategorię i umożliwiający jej zmianę
-				$slug = pods_v('last','url');
-				$zdefiniowane_kategorie_wydarzen = array();
-				//tabela przechowująca nazwy kategorii, żeby wyświetlać je, zamiast slug'a
-				$zdefiniowane_kategorie_wydarzen_nazwy = array();
-				
-				$params = array( 'limit' => -1);
-				$pods1 = pods( 'kategorie', $params );
-				if ( $pods1->total() > 0 ) {
-					//jeśli znaleziono wydarzenia spełniające określone kryteria - następuje wyświetlenie ich listy
-                    while ( $pods1->fetch() ) {
-						$slug = $pods1->display('slug');
-						$zdefiniowane_kategorie_wydarzen[] = $slug;
-						$nazwa = $pods1->display('name');
-						$zdefiniowane_kategorie_wydarzen_nazwy[] = $nazwa;
-					}
-				}
-				
-				
-				$slug = pods_v('last','url'); //slug strony
-				if(in_array($slug,$zdefiniowane_kategorie_wydarzen)){
-					//'Wybrana kategoria: '.$slug;
-					
-					$params = array( 	'limit' => -1,
-									'where'   => '((wydarzenie_kategorie.slug LIKE "%'.$slug.'%")AND((data_i_godzina_wydarzenia.meta_value > NOW()) OR (dzien_zakonczenia.meta_value > NOW())))',
-									'orderby'  => 'data_i_godzina_wydarzenia.meta_value');
-									
-					//Pobranie nazwy wybranej kategorii - sprawdzamy jaki index w $zdefiniowane_kategorie_kursow ma wybrany $slug
-					//A jako, że $zdefiniowane_kategorie_wydarzen_nazwy ma tą samą kolejność to pobierany z niego pole o tym indexie
-					$nazwa_kategorii = $zdefiniowane_kategorie_wydarzen_nazwy[array_search($slug, $zdefiniowane_kategorie_wydarzen)];
-				}
-				else{
-					//Wyświetlanie wszystkich wydarzeń
-					
-					$params = array( 	'limit' => -1,
-									'where'   => '(data_i_godzina_wydarzenia.meta_value > NOW()) OR (dzien_zakonczenia.meta_value > NOW())',
-									'orderby'  => 'data_i_godzina_wydarzenia.meta_value');
-									
-					//podstawienie pod slug na potrzeby wyświetlenia na pasku zmiany kategorii				
-					$nazwa_kategorii = 'wszystkie'; 
-				}
-				
-				//Stworzenie paska
-					?>
-                    	<div id="kategorie-wrap">
-                        	<div id="kategorie-container">
-                            	                          
-                                <?php
-								$menu_class = 'category-nav'; //standardowa (niemobilna klasa dla menu kategorii)
-								if ( !wp_is_mobile() ) {
-								//Dla standardowej - niemobilnej przeglądarki
-									
-									echo '<p>Wyświetlane wydarzenia: '.$nazwa_kategorii.'  </p>'; 
-								}//if ( !wp_is_mobile() )
-								else {
-								//Dla przeglądarki mobilnej
-									$menu_class = 'category-nav-mobile'; //mobilna klasa dla menu kategorii
-								}//else - if ( wp_is_mobile() )
-                                //Dodatkowe menu zmiany kategorii wydarzenia
-                                wp_nav_menu( array(
-                                        'theme_location' => 'category-navigation',
-                                        'container' => 'nav',
-                                        'menu_class' => $menu_class)
-                                ); ?>
-                                &nbsp;
-                            </div><!--#kategorie-container-->
-                        </div><!--#kategorie-wrap-->
-					<?php
-			}//(!is_single())
-?>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Nie znajduje się w #main-wrap bo w przeciwieństwie do niego ma być ustawiana na całą szerokość strony -->
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img class="first-slide" src="<?php echo get_template_directory_uri() ?>/carousel_test/carousel_test_1.jpg" alt="First slide">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Example headline.</h1>
+                  <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img class="second-slide" src="<?php echo get_template_directory_uri() ?>/carousel_test/carousel_test_2.jpg" alt="Second slide">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Another example headline.</h1>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img class="third-slide" src="<?php echo get_template_directory_uri() ?>/carousel_test/carousel_test_3.jpg" alt="Third slide">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>One more for good measure.</h1>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div><!-- /.carousel -->
 
-<div id="main-wrap">
-	<div id="main-container" class="clearfix">
+        <!-- Koniec karuzeli -->
+
+<div id="main-wrap" class="container">
+
     
-    	<section id="content-container" class="column-9">
+
+	<div id="main-container" class="row">
+
+        <!-- Trzy kolumny tekstu pod karuzelą -->
+          <div class="row wyrozniki">
+            <div class="col-sm-4">
+              <img class="img-circle" src="<?php echo get_template_directory_uri().'/img/pegaz_kwadrat.jpg' ?>" alt="Generic placeholder image" width="140" height="140">
+              <h2>Wydarzenia kulturalne</h2>
+              <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+            <div class="col-sm-4">
+              <img class="img-circle" src="<?php echo get_template_directory_uri().'/img/pegaz_kwadrat.jpg' ?>" alt="Generic placeholder image" width="140" height="140">
+              <h2>Kino Odra</h2>
+              <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+            <div class="col-sm-4">
+              <img class="img-circle" src="<?php echo get_template_directory_uri().'/img/pegaz_kwadrat.jpg' ?>" alt="Generic placeholder image" width="140" height="140">
+              <h2>Zajęcia edukacyjne</h2>
+              <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+    
+    	<section id="content-container" class="col-xs-12 col-md-9">
+
 		<?php
 			if (!is_single()){
 			//Na wszelki wypadek sprawdza czy to jest lista wydarzeń
 				
 
-                
-                //get pods object
-				//wczytuje $params zdefiniowane powyżej (w miejscu tworzenia paska kategorii)
+                $params = array(    'limit' => -1,
+                                    'where'   => '(data_i_godzina_wydarzenia.meta_value > NOW()) OR (dzien_zakonczenia.meta_value > NOW())',
+                                    'orderby'  => 'data_i_godzina_wydarzenia.meta_value');
+
 				$pods = pods( 'wydarzenia', $params );
                 //loop through records
                 if ( $pods->total() > 0 ) {
@@ -153,10 +151,60 @@ get_header(); ?>
 						
 						
 						            ?>
-            			<a href="<?php echo esc_url( $permalink); ?>" rel="bookmark"></a>
-                        <article class="wydarzenie column-12">
-                        	<div class="wydarzenie-pasek">
-                                <div class="termin" style="background-color:<?php echo $kolor_tla_naPodstLokalizacji ?>">
+            			<!-- <a href="<?php //echo esc_url( $permalink); ?>" rel="bookmark"></a> PO CO TO?-->
+                        <article class="wydarzenie">
+
+                          <div class="lewa">
+                          <!-- Lewa strona wpidu wydarzenia na liście wydarzeń -->
+
+                              <!-- Tytuł wydarzenia -->
+                              <h1 class="tytul"> <?php _e( $title , 'PP2014' ); ?> </h1> 
+
+                              <!-- Kategorie wydarzenia -->
+                              <div class="kategorie">
+                                <?php for($i=0; $i < count($kategorie_name); $i++){
+                                    if(!empty($kategorie_slug[$i]))
+                                    {
+                                        echo '<a href="'.home_url().'/kategorie_wydarzen/'.$kategorie_slug[$i].'/" class="kategoria">'.$kategorie_name[$i].'</a> ';
+                                    }
+                                }?>
+                              </div>
+
+                              <!-- Krótki opis wydarzenia -->
+                              <div class="opis">
+                                  <?php echo $krotki_opis; ?>
+                              </div>
+
+                          </div>
+
+                          <div class="prawa">
+                          <!-- Prawa strona wpidu wydarzenia na liście wydarzeń -->
+
+                            <!-- img.thumb -->
+                            <!-- div.termin -->
+                          </div>
+
+                          <!-- ======================================================================= -->
+
+                                
+                                <div class="termin-thumb">
+                                    <?php 
+                                    //jeśli wydarzenie ma przypisaną miniaturę, to jest ona wyświetlana
+                                    if (( !is_null($picture) )&&(!empty($picture))){
+                                        echo wp_get_attachment_image( $picture['ID'] ); 
+                                    }
+                                    //jeśli wydarzenie nie ma przypisanej miniatury to jest wyświetlany standardowy obrazek pegaz_thumb.jpg
+                                    else{
+                                        echo '<img src="'.get_stylesheet_directory_uri().'/pegaz_thumb.png" />';    
+                                    }?>
+                                 </div><!--termin-thumb-->
+                                
+
+                                
+                                <a class="wydarzenie-czytajWiecej" href="<?php echo esc_url( $permalink); ?>"><div>Czytaj<br />
+    więcej</div></a>
+                        	
+                            <div class="wydarzenie-termin" style="background-color:<?php echo $kolor_tla_naPodstLokalizacji ?>">
                                 <?php
                                     if(!empty($termin_opisowy))
                                     //jeśli jest to termin opisowy
@@ -261,42 +309,9 @@ get_header(); ?>
                                     }//else
                                     
                                 ?>
-                                </div><!--.termin-->
-                                
-                                <div class="termin-thumb">
-                                    <?php 
-                                    //jeśli wydarzenie ma przypisaną miniaturę, to jest ona wyświetlana
-                                    if (( !is_null($picture) )&&(!empty($picture))){
-                                        echo wp_get_attachment_image( $picture['ID'] ); 
-                                    }
-                                    //jeśli wydarzenie nie ma przypisanej miniatury to jest wyświetlany standardowy obrazek pegaz_thumb.jpg
-                                    else{
-                                        echo '<img src="'.get_stylesheet_directory_uri().'/pegaz_thumb.png" />';	
-                                    }?>
-                                 </div><!--termin-thumb-->
-                                
-                                <div class="wydarzenie-tresc">
-                                    <h1 class="wydarzenie-tytul">
-                                             <?php _e( $title , 'PP2014' ); ?>
-                                    </h1>
-                                    <div class="wydarzenie-kategorie">
-                                        <?php for($i=0; $i < count($kategorie_name); $i++){
-                                            if(!empty($kategorie_slug[$i]))
-                                            {
-                                                echo '<a href="'.home_url().'/kategorie_wydarzen/'.$kategorie_slug[$i].'/" class="kategoria">'.$kategorie_name[$i].'</a> ';
-                                            }
-                                        }?>
-                                        
-                                        
-                                    </div>
-                                    <div class="wydarzenie-opis">
-                                        <?php echo $krotki_opis; ?>
-                                    </div>
-                                </div><!--.wydarzenie-tresc-->
-                                
-                                <a class="wydarzenie-czytajWiecej" href="<?php echo esc_url( $permalink); ?>"><div>Czytaj<br />
-    więcej</div></a>
-							</div><!--.wydarzenie-pasek-->
+                            </div><!--.wydarzenie-termin-->
+
+                            
                             
 							<!-- KUP BILET, TYLKO W KASIE, BRAK BILETÓW itp. -->
                             <div class="wydarzenie-bilety">
