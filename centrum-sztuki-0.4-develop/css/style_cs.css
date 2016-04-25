@@ -46,53 +46,66 @@ h2 {
 article.wydarzenie div.odnosnik {
   overflow: hidden;
   *zoom: 1;
-  height: 150px;
   border: none;
   background-color: #eee;
   margin-top: 10px;
-  border-left: 5px solid #ccc;
+  border-top: 5px solid #ccc;
 }
-/* line 200, ../../sass/style_cs.scss */
+@media only screen and (min-width: 992px) {
+  /* line 168, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik {
+    height: 150px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  /* line 168, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik {
+    border-left: 5px solid #ccc;
+    border-top: none;
+  }
+}
+/* line 212, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa {
   width: 100%;
   padding: 5px 10px 5px 10px;
   color: #333;
 }
 @media only screen and (min-width: 992px) {
-  /* line 200, ../../sass/style_cs.scss */
+  /* line 212, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.lewa {
     width: 435px;
     float: left;
   }
 }
-/* line 211, ../../sass/style_cs.scss */
+/* line 222, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa h2 {
   margin-top: 0;
   margin-bottom: 10px;
 }
-/* line 217, ../../sass/style_cs.scss */
+/* line 227, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa div.kategorie {
   padding: 0;
   margin-bottom: 10px;
 }
-/* line 223, ../../sass/style_cs.scss */
+/* line 232, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa div.opis {
   font-size: 1em;
   line-height: 1.1em;
 }
-/* line 229, ../../sass/style_cs.scss */
+/* line 238, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.prawa {
+  height: 150px;
   width: 100%;
   background-color: #ccc;
+  float: right;
 }
 @media only screen and (min-width: 992px) {
-  /* line 229, ../../sass/style_cs.scss */
+  /* line 238, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.prawa {
     width: 405px;
-    float: right;
   }
 }
-/* line 239, ../../sass/style_cs.scss */
+/* line 251, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin {
   margin-top: 5px;
   margin-left: 10px;
@@ -100,29 +113,36 @@ article.wydarzenie div.odnosnik div.termin {
   line-height: 1em;
   color: #fff;
 }
+@media only screen and (min-width: 768px) {
+  /* line 251, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik div.termin {
+    border: 1px solid yellow;
+  }
+}
 @media only screen and (min-width: 992px) {
-  /* line 239, ../../sass/style_cs.scss */
+  /* line 251, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin {
     width: 240px;
     float: left;
+    border: none;
   }
 }
-/* line 253, ../../sass/style_cs.scss */
+/* line 271, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin span.etykieta {
   display: block;
 }
-/* line 257, ../../sass/style_cs.scss */
+/* line 275, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin p.dzien, article.wydarzenie div.odnosnik div.termin p.godziny {
   font-size: 2.5em;
   margin-top: 10px;
   margin-bottom: 20px;
 }
-/* line 263, ../../sass/style_cs.scss */
+/* line 281, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin span.godziny {
   display: block;
   float: left;
 }
-/* line 268, ../../sass/style_cs.scss */
+/* line 286, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin span.minuty {
   font-size: 0.75em;
   margin-top: -0.25em;
@@ -130,54 +150,69 @@ article.wydarzenie div.odnosnik div.termin span.minuty {
   display: block;
   float: left;
 }
-/* line 277, ../../sass/style_cs.scss */
+/* line 295, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik img.thumb {
   float: left;
   width: 150px;
   height: 150px;
 }
-/* line 284, ../../sass/style_cs.scss */
+/* line 302, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin-dzien p {
   margin: 0;
 }
-@media only screen and (min-width: 992px) {
-  /* line 289, ../../sass/style_cs.scss */
+/* line 307, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosnik div.termin-godz {
+  float: left;
+}
+@media only screen and (min-width: 400px) {
+  /* line 307, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosnik div.termin-godz {
     width: 120px;
     height: 100px;
-    float: left;
   }
 }
-/* line 297, ../../sass/style_cs.scss */
+@media only screen and (min-width: 992px) {
+  /* line 307, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosnik div.termin-godz {
+    width: 120px;
+    height: 100px;
+  }
+}
+/* line 321, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin-lokalizacja {
   text-align: center;
 }
+@media only screen and (min-width: 400px) {
+  /* line 321, ../../sass/style_cs.scss */
+  article.wydarzenie div.odnosnik div.termin-lokalizacja {
+    height: 100px;
+    width: 100%;
+  }
+}
 @media only screen and (min-width: 992px) {
-  /* line 297, ../../sass/style_cs.scss */
+  /* line 321, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-lokalizacja {
     width: 240px;
     height: 50px;
     float: right;
   }
 }
-/* line 306, ../../sass/style_cs.scss */
+/* line 335, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik a.czytajWiecej {
   border: 1px solid green;
 }
-/* line 313, ../../sass/style_cs.scss */
+/* line 342, ../../sass/style_cs.scss */
 article.wydarzenie div.bilety {
   overflow: hidden;
   *zoom: 1;
   border-color: #ccc;
 }
-/* line 317, ../../sass/style_cs.scss */
+/* line 346, ../../sass/style_cs.scss */
 article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
   background-color: #eee;
   color: #333;
   padding: 3px 10px 3px 10px;
-  display: inline-block;
-  border-left: 5px solid;
-  border-color: inherit;
+  display: block;
   -webkit-border-bottom-right-radius: 10px;
   -webkit-border-bottom-left-radius: 10px;
   -moz-border-radius-bottomright: 10px;
@@ -185,7 +220,21 @@ article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-/* line 328, ../../sass/style_cs.scss */
+@media only screen and (min-width: 992px) {
+  /* line 346, ../../sass/style_cs.scss */
+  article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
+    display: inline-block;
+  }
+}
+@media only screen and (min-width: 992px) {
+  /* line 346, ../../sass/style_cs.scss */
+  article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
+    border-left: 5px solid #ccc;
+    border-top: none;
+    border-color: inherit;
+  }
+}
+/* line 373, ../../sass/style_cs.scss */
 article.wydarzenie div.bilety a.kup-bilet {
   background-color: #333;
   color: #fff;

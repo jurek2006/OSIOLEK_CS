@@ -167,38 +167,49 @@ $md: 1200px;
 article.wydarzenie{
 	div.odnosnik{
 		// Element (wpis) listy wydarzeń na stronie wydarzenia
-		@include clearfix;
-		height: $wydarzenie-height;
-		border: none;
-		background-color: $tloWydarzenia;
-		margin-top: $wydarzenia-odleglosc-na-liscie;
-		border-left: $wydarzenie-border solid $tloStandardDivTermin;
 
 		// Dla rozmiarów xxs, xs, sm części .lewa i .prawa są i tak na całą szerokość article.wydarzenie
 		// Dla rozmiarów lg i md zaczynają tworzyć pasek i wtedy dopiero używane są szerokości odpowiednich sekcji w pikselach
 
-		//Wyliczenie szerokości elementów dla ekranów o szerokości większej niż md
+		//WYLICZANIE SZEROKOŚCI ELEMENTÓW DLA EKRANÓW O SZEROKOŚCI WIĘKSZEJ NIŻ MD
 		//Wyliczenie szerokości div.prawa:
-
-		// $padding-kolumny: 15px; //Wartość aktualnie nieużywana (na podstawie ustawień bootstrap) - potrzebna do wyliczania szerokości elementów wpisu "wydarzenie" na liście wydarzeń
-		// $wydarzenie-thumb-width: 150px; //Szerokośc obrazka thumb na liście wydarzeń
-		// $wydarzenie-termin-dzien-width: 120px; //Szerokość jednej kolumny (np. dnia lub godziny) w części terminu wydarzenia
-		// $margines-bledu: 5px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
-
-		//Dla rozmiarów md i lg wydarzenie na liście wydarzeń ma kolorowe obramowanie po lewej
-		// @include MQ(md){
-		// 	// styl dla rodzielczości większej niż $sm
-		// 	border-left: $wydarzenie-border solid;
-		// }
 
 		$prawa-width: 2 * $wydarzenie-termin-dzien-width + $wydarzenie-thumb-width + $margines-bledu;
 
 		//Wyliczenie szerokości div.lewa:
 		//Wyliczane dla szerokości $md (z uwzględnieniem, że część na wydarzenia zajmuje 3/4 szerokości i biorąc pod uwagę padding)
 		$lewa-width: ($md - 4 * $padding-kolumny) * 3/4 - $prawa-width - $margines-bledu;
+
+		//WYLICZANIE SZEROKOŚCI ELEMENTÓW DLA EKRANÓW O SZEROKOŚCI WIĘKSZEJ NIŻ SM I MNIEJSZEJ NIŻ MD  ???
+
+		@include clearfix;
+
+		// Wysokość wpisu na liście wydarzeń jest ustalona na stałę dla rozdzielczości md i lg
+		@include MQ(md){
+			// styl dla rodzielczości większej niż $sm
+			height: $wydarzenie-height;
+		}
+		
+		
+		border: none;
+		background-color: $tloWydarzenia;
+		margin-top: $wydarzenia-odleglosc-na-liscie;
+		
+
+
+
+
+		//Dla rozmiarów md i lg wydarzenie na liście wydarzeń ma kolorowe obramowanie po lewej - dla mniejszych ma na górze
+		border-top: $wydarzenie-border solid $tloStandardDivTermin;
+		@include MQ(md){
+			// styl dla rodzielczości większej niż $sm
+			border-left: $wydarzenie-border solid $tloStandardDivTermin;
+			border-top: none;
+		}
+
+		
 	 
 		div.lewa{
-			//border: 1px solid red; //TESTOWE
 			width: 100%;
 			padding: 5px 10px 5px 10px;
 			color: $kolorTekstu;
@@ -210,12 +221,10 @@ article.wydarzenie{
 
 			h2{
 				margin-top: 0;
-				//border: 1px solid red; //TESTOWE
 				margin-bottom: 10px;
 			}
 
 			div.kategorie{
-				//border: 1px solid red; //TESTOWE
 				padding: 0;
 				margin-bottom: 10px;
 			}
@@ -227,12 +236,15 @@ article.wydarzenie{
 		}
 
 		div.prawa{
+			height: $wydarzenie-height;
 			width: 100%;
 			background-color: $tloStandardDivTermin; //standardowy kolor, gdy nie wybrano lokalizacji wydarzenia
+			float: right;
+
+
 
 			@include MQ(md){
 				width: $prawa-width;
-				float: right;
 			}
 		}
 
@@ -242,12 +254,18 @@ article.wydarzenie{
 			margin-left: 10px;
 			font-size: $wydarzenie-termin-font-size;
 			line-height: $wydarzenie-termin-line-height;
+			
+			@include MQ(sm){
+				border: 1px solid yellow; //TESTOWE
+				// width: $xs;
+			}
 
 			color: $kolorTekstNakladany;
 
 			@include MQ(md){
 				width: 2 * $wydarzenie-termin-dzien-width;
 				float: left;
+				border: none; //TESTOWE
 			}
 
 			span.etykieta{
@@ -287,15 +305,26 @@ article.wydarzenie{
 		}
 
 		div.termin-dzien, div.termin-godz{
+			float: left;
+
+			@include MQ(xs){
+				width: 120px;
+				height: $wydarzenie-termin-dzien-height;
+			}
+
 			@include MQ(md){
 				width: $wydarzenie-termin-dzien-width;
 				height: $wydarzenie-termin-dzien-height;
-				float: left;
 			}
 		}
 
 		div.termin-lokalizacja{
 			text-align: center;
+			@include MQ(xs){
+				height: $wydarzenie-termin-dzien-height;
+				width: 100%;
+			}
+
 			@include MQ(md){
 				width: 2 * $wydarzenie-termin-dzien-width;
 				height: $wydarzenie-height - $wydarzenie-termin-dzien-height;
@@ -315,14 +344,30 @@ article.wydarzenie{
 		border-color: $tloStandardDivTermin;
 
 		a, span{
+
 			background-color: $tloInfoBilety;
 			color: $kolorTekstuInfoBilety;
 			padding: 3px 10px 3px 10px;
-			display: inline-block;
-			border-left: $wydarzenie-border solid;
-			border-color: inherit;
+
+			// Dla rozdzielczości md i lg przycisk "Kup bilety" lub informacja o biletach ma szerokość dopasowaną do treści. Dla mniejszych rozdzielczości ma całą szerokośc pola wydarzenia
+			display: block;
+			@include MQ(md){
+				// styl dla rodzielczości większej niż $sm
+				display: inline-block;
+			}
+			
+			
 
 			@include bottom-radius(10px); //zaokrąglenie dolnej części elementu kup bilet/informacji o biletach za pomocą mixin bottom-radius($radius)
+
+			// border po lewej stronie tylko dla rozdzielczości md i lg
+			@include MQ(md){
+				// styl dla rodzielczości większej niż $sm
+				border-left: $wydarzenie-border solid $tloStandardDivTermin;
+				border-top: none;
+				border-color: inherit; //pobranie indywidualnego koloru (lokalizacji wydarzenia z elementu div.bilety)
+			}
+
 		}
 
 		a.kup-bilet{
