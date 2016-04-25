@@ -1,12 +1,11 @@
 @charset "utf-8";
 /*
-Theme Name: Centrum Sztuki 0.4-develop
+Theme Name: Centrum Sztuki 0.3.4
 Author: Jurek Skowron
 Author URI: http://jurekskowron.pl
-Version: 0.4-develop
-Description: Motyw dla strony Centrum Sztuki kultura.olawa.pl na wordpressie. Wywodzący się z 0.3.4 ale będący próbą zaimplementowania rozwiązań bootstrap i responsywności. 
+Version: 0.3.4
+Description: Motyw dla strony Centrum Sztuki kultura.olawa.pl na wordpressie. Wersja będąca scaleniem motywu 0.3.3 z jego motywami potomnymi
 
--------------------------------------------------------------------------------
 W wersji 0.3.4 połączono 0.3.3 z 0.3.3.2
 
 Zmiany w wersji 0.3.3.2:
@@ -40,5 +39,6 @@ License: @Jurek Skowron
 - medium768.css - standardowy styl - ustawiony na szerokość 768px
 - desktop.css - nadpisuje domyślne szerokość ekranu większa od 1141px*/
 
-
+/*Style niezbędne do "scalenia" przy tworzeniu nowej wersji motywu nadrzędnego*/
+/*----------------------------------------------------------------------------*/
 
