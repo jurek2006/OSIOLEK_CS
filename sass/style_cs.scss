@@ -31,6 +31,7 @@ $wydarzenie-termin-dzien-width: 120px; //Szerokość jednej kolumny (np. dnia lu
 $wydarzenie-termin-dzien-height: 100px; //Wysokość kolumny (dnia i godziny) w części terminu wydarzenia
 $margines-bledu: 15px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
 $wydarzenia-odleglosc-na-liscie: 10px; //Odległość pomiędzy wpisami poszczególnych wydarzeń na liście wydarzeń
+$wydarzenie-border: 5px; //szerokość "obramowania" wydarzenia na liście wydarzeń (czasem jest to obramowanie górne czasem boczne - zalezy od rozczielczości)
 
 // GRUBOŚCI CZCIONEK
 $font-normal: 400;
@@ -168,9 +169,11 @@ article.wydarzenie{
 		// Element (wpis) listy wydarzeń na stronie wydarzenia
 		@include clearfix;
 		height: $wydarzenie-height;
-
+		border: none;
+		border-left: $wydarzenie-border solid;
 		background-color: $tloWydarzenia;
 		margin-top: $wydarzenia-odleglosc-na-liscie;
+		border-color: $tloStandardDivTermin;
 
 		// Dla rozmiarów xxs, xs, sm części .lewa i .prawa są i tak na całą szerokość article.wydarzenie
 		// Dla rozmiarów lg i md zaczynają tworzyć pasek i wtedy dopiero używane są szerokości odpowiednich sekcji w pikselach
@@ -304,12 +307,15 @@ article.wydarzenie{
 	// Częśc odpowiadająca za "przycisk Kup bilety" (lub odpowiadający komunikat)
 	div.bilety{
 		@include clearfix;
+		border-color: $tloStandardDivTermin;
 
 		a, span{
 			background-color: $tloInfoBilety;
 			color: $kolorTekstuInfoBilety;
 			padding: 3px 10px 3px 10px;
 			display: inline-block;
+			border-left: $wydarzenie-border solid;
+			border-color: inherit;
 
 			@include bottom-radius(10px); //zaokrąglenie dolnej części elementu kup bilet/informacji o biletach za pomocą mixin bottom-radius($radius)
 		}

@@ -154,8 +154,7 @@ get_header(); ?>
 						            ?>
               <article class="wydarzenie">
                 <a class="czytajWiecej" href="<?php echo esc_url( $permalink); ?>">
-                  <div class="odnosnik">
-
+                  <div class="odnosnik" style="border-color:<?php echo $kolor_tla_naPodstLokalizacji ?>"> <!-- kolor obramowania wydarzenia na liście na podstawie koloru lokalizacji -->
                     <div class="lewa">
                     <!-- Lewa strona wpidu wydarzenia na liście wydarzeń -->
 
@@ -324,7 +323,7 @@ get_header(); ?>
                 </a>
 
                 <!-- KUP BILET, TYLKO W KASIE, BRAK BILETÓW itp. -->
-                <div class="bilety">
+                <div class="bilety" style="border-color:<?php echo $kolor_tla_naPodstLokalizacji ?>"> <!-- kolor obramowania wydarzenia na liście na podstawie koloru lokalizacji -->
                 
                 <?php if(!empty($inny_komunikat_o_biletach)){
                       //jeśli pole inny_komunikat_o_biletach nie jest pusty to wyświetlana jest jego treść a cała reszta pomijana
