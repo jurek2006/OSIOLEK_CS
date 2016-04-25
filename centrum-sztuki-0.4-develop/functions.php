@@ -104,7 +104,7 @@
 		wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/css/bootstrap.css' );
 
 		// styl będący moją modyfikacją bootstrap:
-		wp_enqueue_style( 'moj_bootstrap', get_template_directory_uri().'/css/moj_bootstrap.css' );
+		wp_enqueue_style( 'style_cs', get_template_directory_uri().'/css/style_cs.css' );
 
 	}
 	add_action( 'wp_enqueue_scripts', 'centrumSztuki_enqueue_style' );
@@ -147,6 +147,10 @@
 	
 
 	//Rejestracja menu
+	
+	// Register custom navigation walker - na potrzeby integracji navbar bootstrap'a z wordpressem
+    require_once('wp_bootstrap_navwalker.php');
+
 	function simpleblog_register_menus()
 	{
 		register_nav_menus(
@@ -237,6 +241,9 @@
 		if( is_singular() && get_option('thread-comments') && comments_open() )
 			wp_enqueue_script('comment-reply');
 	}//simpleblog_load_scripts
+
+	
+
 	
 	//---------------funkcje testowe - do usunięcia
 	
