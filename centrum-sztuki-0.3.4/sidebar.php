@@ -1,5 +1,5 @@
 ﻿<aside>
-	<ul id="sidebar" class="clearfix col-xs-12 col-md-3">
+	<ul id="sidebar" class="clearfix">
     <?php  
 			//zczytanie nazwy kategorii głównej dla otwartej strony - na jej podstawie wczytywane jest odpowiedni widżet
 			//podstrona_drugi_poziom określa drugi poziom zagnieżdżenia, 
