@@ -29,11 +29,14 @@ $tloInfoBilety: $tloWydarzenia; //ustawiony na kolor wydarzenia
 $kolorTekstuInfoBilety: $kolorTekstu; //ustawiony na podstawowy kolor tekstu
 
 // USTAWIENIA SZEROKOŚCI, ODSTĘPÓW
+$min-width: 280px; //Minimalna szerokość strony, poniżej której zawartośc już się nie skaluje
 //używane w wydarzenia.php
 $padding-kolumny: 15px; //Wartość aktualnie nieużywana (na podstawie ustawień bootstrap) - potrzebna do wyliczania szerokości elementów wpisu "wydarzenie" na liście wydarzeń
 $wydarzenie-height: 150px; //Wysokość paska wydarzenia przy wielkościach md i lg (przy mniejszych same się dostosowują)
 $wydarzenie-thumb-width: 150px; //Szerokośc obrazka thumb na liście wydarzeń
 $wydarzenie-thumb-height: 150px; //Wysokość obrazka thumb na liście wydarzeń
+$wydarzenie-thumb-xxs-width: 80px; //Szerokośc obrazka thumb na liście wydarzeń dla rozdzielczości xxs
+$wydarzenie-thumb-xxs-height: 80px; //Wysokość obrazka thumb na liście wydarzeń  dla rozdzielczości xxs
 $wydarzenie-termin-dzien-width: 120px; //Szerokość jednej kolumny (np. dnia lub godziny) w części terminu wydarzenia
 $wydarzenie-termin-dzien-height: 100px; //Wysokość kolumny (dnia i godziny) w części terminu wydarzenia
 $margines-bledu: 15px; //Margines "błędu" do obliczania szerokości elementów na liście wydarzeń
@@ -80,7 +83,9 @@ h2{
 	font-size: 110%;
 }
 
-
+div#main-wrap{
+	min-width: $min-width; //ustawienie minimalnej szerokości strony, poniżej której zawartość już się nie skaluje
+}
 
 /*================ETYKIETY przy użyciu bootstrap==================================*/
 /*================koniec ETYKIETY ==================================*/
@@ -114,6 +119,7 @@ h2{
 }
 
 article.wydarzenie{
+
 	div.odnosnik{
 		// Element (wpis) listy wydarzeń na stronie wydarzenia
 
@@ -135,9 +141,6 @@ article.wydarzenie{
 		
 		border: none;
 		background-color: $tloWydarzenia;
-		@include MQonly(xxs){
-			background-color: yellow;
-		}
 
 		margin-top: $wydarzenia-odleglosc-na-liscie; //standardowy margines między wydarzeniami dla rozdzielczości mniejszych niż md
 		
@@ -182,12 +185,13 @@ article.wydarzenie{
 		}
 
 		div.prawa{
-			height: $wydarzenie-height;
 			width: 100%;
 			background-color: $tloStandardDivTermin; //standardowy kolor, gdy nie wybrano lokalizacji wydarzenia
 			float: right;
 
-
+			@include MQ(xs){
+				height: $wydarzenie-height; //dla rozdzielczości większych niż xxs (czyli >=400px element div.prawa ma zadaną stałą wysokość)
+			}
 
 			@include MQ(md){
 				width: $prawa-width;
@@ -198,9 +202,13 @@ article.wydarzenie{
 			//Część "kolorowa" wydarzenia - zawierająca informację na temat terminu - czyli kiedy i gdzie - kolor jest nadawany w HTML na podstawie koloru lokalizacji wydarzenia
 			$termin-margin-left: 10px; //KONF - określa domyślny lewy margines obszaru div.termin
 			margin-top: 5px;
-			margin-left: $termin-margin-left + $wydarzenie-thumb-width; //do standardowego lewego marginesu dodawana jest szerokośc obrazka thumb
+			//margin-left: $termin-margin-left + $wydarzenie-thumb-width; //do standardowego lewego marginesu dodawana jest szerokośc obrazka thumb
 			font-size: $wydarzenie-termin-font-size;
 			line-height: $wydarzenie-termin-line-height;
+
+			@include MQ(xs){
+				margin-left: $termin-margin-left + $wydarzenie-thumb-width; //do standardowego lewego marginesu dodawana jest szerokośc obrazka thumb
+			}
 
 			@include MQ(md){
 				margin-left: $termin-margin-left; 
@@ -238,6 +246,12 @@ article.wydarzenie{
 			float: left;
 			width: $wydarzenie-thumb-width; 
 			height: $wydarzenie-thumb-height;
+
+			@include MQonly(xxs){
+				width: $wydarzenie-thumb-xxs-width; 
+				height: $wydarzenie-thumb-xxs-height;
+				margin-right: 5px; //KONF - marginesz po prawej stronie obrazka thumb (tylko dla rozmiaru xxs)
+			}
 		}
 
 		div.termin-dzien{
@@ -248,10 +262,15 @@ article.wydarzenie{
 
 		div.termin-dzien, div.termin-godz{
 			float: left;
-			
-			width: 50%; //w przypadku rozdzielczości mniejszych niż sm (<768px) dzień/dni i godz. wydarzenia ustawiane są na połowę szerokości div.termin
+						
 			max-width: $wydarzenie-termin-dzien-width; //dla wszystkich rozdzielczości dzien/dni i godz. wydarzenia są nie większe niż zadana wielkość $wydarzenie-termin-dzien-width
 			height: $wydarzenie-termin-dzien-height;
+
+			width: 50%; //w przypadku rozdzielczości mniejszych niż sm (<768px) dzień/dni i godz. wydarzenia ustawiane są na połowę szerokości div.termin
+
+			@include MQonly(xxs){
+				width: ($min-width - $wydarzenie-thumb-xxs-width - 3 * $margines-bledu) /2 ; //rozmiar sekcji dnia/godziny wyliczany na podstawie szerokości minimalnej strony i szerokości obrazka thumb
+			}
 
 			@include MQ(sm){
 				width: 25%; //w przypadku rozdzielczości sm (768 - 991px) dzień/dni i godz. wydarzenia ustawiane są na 1/4 szerokości div.termin, tak aby obok zmieściła się jeszcze lokalizacja wydarzenia
@@ -268,9 +287,14 @@ article.wydarzenie{
 			text-align: left; //standardowe wyrównanie lokalizacji do lewej
 			float: right;
 
+			width: 100%;
+
+			@include MQonly(xxs){
+				text-align: center;
+			}
+
 			@include MQ(xs){
 				height: $wydarzenie-termin-dzien-height;
-				width: 100%;
 			}
 
 			@include MQ(md){
@@ -281,7 +305,7 @@ article.wydarzenie{
 		}
 
 		a.czytajWiecej{
-			 border: 1px solid green; //TESTOWE
+
 		}
 
 	}
