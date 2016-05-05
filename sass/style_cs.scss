@@ -135,7 +135,6 @@ article.wydarzenie{
 		//Wyliczane dla szerokości $md (z uwzględnieniem, że część na wydarzenia zajmuje 3/4 szerokości i biorąc pod uwagę padding)
 		$lewa-width: ($md - 4 * $padding-kolumny) * 3/4 - $prawa-width - $margines-bledu;
 
-		//WYLICZANIE SZEROKOŚCI ELEMENTÓW DLA EKRANÓW O SZEROKOŚCI WIĘKSZEJ NIŻ SM I MNIEJSZEJ NIŻ MD  ???
 
 		@include clearfix;		
 		
@@ -308,6 +307,18 @@ article.wydarzenie{
 
 		}
 
+	}
+
+	div.odnosnik:hover{
+		//box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.5); //TESTOWE
+		border: 1px solid $kolorTekstu; //TESTOWE
+		transition-duration: 1s, 15s; //TESTOWE
+		//border-left: inherit; //TESTOWE
+	}
+
+	div.odnosnik:active{
+		//box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75); //TESTOWE
+		background-color: $kolorTekstu; //TESTOWE
 	}
 
 	// Częśc odpowiadająca za "przycisk Kup bilety" (lub odpowiadający komunikat)
