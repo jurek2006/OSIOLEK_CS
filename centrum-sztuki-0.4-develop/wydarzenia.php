@@ -153,10 +153,10 @@ get_header(); ?>
 						
 						            ?>
               <article class="wydarzenie">
-                <a class="czytajWiecej" href="<?php echo esc_url( $permalink); ?>">
+                <a class="czytajWiecej" href="<?php echo esc_url( $permalink); ?>" title="Kliknij aby dowiedzieć się więcej">
                   <div class="odnosnik" style="border-color:<?php echo $kolor_tla_naPodstLokalizacji ?>"> <!-- kolor obramowania wydarzenia na liście na podstawie koloru lokalizacji -->
                     <div class="lewa">
-                    <!-- Lewa strona wpidu wydarzenia na liście wydarzeń -->
+                    <!-- Lewa strona wpisu wydarzenia na liście wydarzeń -->
 
                       <h2 class="tytul"> <?php _e( $title , 'PP2014' ); ?> </h2> <!-- Tytuł wydarzenia -->
 
@@ -332,10 +332,10 @@ get_header(); ?>
                       else{
                         switch ($opcje_sprzedazy) {
                           case "wstep_wolny":
-                            echo '<span>Wstęp wolny</span>';
+                            echo '<span title="Wydarzenie '.$title.' jest bezpłatne">Wstęp wolny</span>';
                             break;
                           case "brak_biletow":
-                            echo '<span class="brak-biletow">Brak biletów</span>';
+                            echo '<span title="Brak dostępnych biletów na wydarzenie '.$title.'"class="brak-biletow">Brak biletów</span>';
                             break;
                           case "tylko_kasa":
                             echo '<span class="bilety-kasa"><a href="'.home_url().'/o-nas/kasa/">Bilety do nabycia w kasie</a></span>';
@@ -349,11 +349,11 @@ get_header(); ?>
                                //z opublikowaniem
                                if($id_w_sprzedazy_online > 0){
                                  //jeśli podano konkretny ID w sprzedaży
-                                  echo '<a class="kup-bilet"href="http://www.systembiletowy.pl/cso/index.php/repertoire.html?id='.$id_w_sprzedazy_online.'">Kup bilety</a>';
+                                  echo '<a title="Kliknij aby przejść do zakupu biletów" class="kup-bilet"href="http://www.systembiletowy.pl/cso/index.php/repertoire.html?id='.$id_w_sprzedazy_online.'">Kup bilety</a>';
                                }
                                else{
                                  //jeśli nie podano konkretnego ID w sprzedaży - link do całego repertuaru w sprzedaży
-                                 echo '<a class="kup-bilet" href="'.home_url().'/bilety-online/">Kup bilety</a>';
+                                 echo '<a title="Kliknij aby przejść do zakupu biletów" class="kup-bilet" href="'.home_url().'/bilety-online/">Kup bilety</a>';
                                }
                              }
                              else{
