@@ -1,5 +1,8 @@
 /*Plik stylów wczytywany po bootstrapowym - Wczytywany po bootstrap.css*/
 
+/*----------- apply a natural box layout model to all elements --------------*/
+* {box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;  }
+
 // LEGENDA:
 // - TESTOWE - dopisek przy wpisach jedynie testowych
 // - KONF - dopisek przy zmiennych konfiguracyjnych "w treści"
@@ -14,8 +17,9 @@ $kolorTekstu: #333;
 // Kolor tekstu nakładany - używany na kolorowych paskach lokalizacji - terminu
 $kolorTekstNakladany: #fff; //Teraz biały
 
-// Tło wydarzenia:
+// Tło wydarzenia (na liście wydarzeń):
 $tloWydarzenia: #eee; //lekko szary
+$tloWydarzenia-hover: darken($tloWydarzenia, 10%); //tło wydarzenia po najechaniu
 
 // Standardowy kolor tła div.termin na liście wydarzeń (normalnie się nie wyświetla bo jest pobierany kolor na podstawie lokalizacji wydarzenia)
 $tloStandardDivTermin: #ccc;
@@ -72,6 +76,10 @@ body{
 	font-weight: $font-normal;	
 	font-size: 1.7em; /*zwiększenie czcionki*/
 	color: $kolorTekstu;
+}
+
+a:hover{
+	text-decoration: none; //zapobieganie podkreślania odnośników (potrzebne przy problemie podkreślania na liście wydarzeń)
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -142,6 +150,7 @@ article.wydarzenie{
 		background-color: $tloWydarzenia;
 
 		margin-top: $wydarzenia-odleglosc-na-liscie; //standardowy margines między wydarzeniami dla rozdzielczości mniejszych niż md
+
 		
 		//Dla rozmiarów md i lg wydarzenie na liście wydarzeń ma kolorowe obramowanie po lewej - dla mniejszych ma na górze
 		border-top: $wydarzenie-border solid $tloStandardDivTermin;
@@ -307,19 +316,42 @@ article.wydarzenie{
 
 		}
 
-	}
+		-webkit-transition: all 0.5s ease, -webkit-transform 0.5s ease; //TESTOWE
+    	transition: all 0.5s ease, transform 0.5s ease; //TESTOWE
 
-	div.odnosnik:hover{
-		//box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.5); //TESTOWE
-		border: 1px solid $kolorTekstu; //TESTOWE
-		transition-duration: 1s, 15s; //TESTOWE
-		//border-left: inherit; //TESTOWE
-	}
+    	&:hover{
+		//akcja hover dla div.odnosnik - najechanie na wpis wydarzenia na liście wydarzeń
+			background: $tloWydarzenia-hover; 
+			border-color: $tloStandardDivTermin;
 
-	div.odnosnik:active{
-		//box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75); //TESTOWE
-		background-color: $kolorTekstu; //TESTOWE
-	}
+			h2.tytul{
+				text-decoration: underline; //Dodanie podkreślenia tytułu wydarzenia po najechaniu na wydarzenie
+			}
+			//standardowe zachowanie przy hoverze - dodanie prawego i lewego marginesu, górny bez zmian 
+			border-left: 1px solid;
+			border-right: 1px solid;
+			border-top: $wydarzenie-border solid $tloStandardDivTermin;
+
+			//zachowanie przy hoverze dla rozdzielczości >=md, dodanie górnego i dolnego marginesu, lewy bez zmian
+			@include MQ(md){
+				border-top: 1px solid;
+				border-bottom: 1px solid;
+				border-left: $wydarzenie-border solid $tloStandardDivTermin;
+		}
+
+		&:active{
+		// akcja active dla div.odnosnik - kliknięcie na wpis wydarzenia na liście wydarzeń
+			//box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75); //TESTOWE
+			background-color: $kolorTekstu; //TESTOWE
+		}
+
+	}	
+
+}
+
+	
+
+	
 
 	// Częśc odpowiadająca za "przycisk Kup bilety" (lub odpowiadający komunikat)
 	div.bilety{
@@ -368,6 +400,11 @@ article.wydarzenie{
 
 			@include MQ(md){
 				font-size: 1em; //dla rozdzielczości md i lg bez zwiększenia czcionki
+			}
+
+			&:hover{
+			//obsługa hover dla a.kup-bilet - dodaje podkreślenie
+				text-decoration: underline;
 			}
 		}
 
