@@ -96,11 +96,19 @@ div#main-wrap{
 }
 
 /*================ETYKIETY przy użyciu bootstrap==================================*/
-/*================koniec ETYKIETY ==================================*/
 .label{
 	margin-right: 3px;
 	font-weight: $font-normal;
 }
+/*================koniec ETYKIETY ==================================*/
+
+/*================TOOLTIP przy użyciu jQueryUI==================================*/
+.ui-tooltip{
+
+    background: rgba($tloWydarzenia, 0.9); //KONF - przezroczystość tooltipa
+    font-size: 0.8em; //KONF - wielkośc czcionki tooltipa
+}
+/*================koniec TOOLTIP przy użyciu jQueryUI==================================*/
 
 /*================MIXINS - "domieszki"==================================*/
 @mixin bottom-radius($radius){
