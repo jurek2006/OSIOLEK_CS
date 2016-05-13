@@ -10,7 +10,7 @@
 
 /*================MEDIA QUERIES za pomoc─ů sass==================================*/
 /*================koniec MEDIA QUERIES za pomoc─ů sass===========================*/
-/* line 74, ../../sass/style_cs.scss */
+/* line 75, ../../sass/style_cs.scss */
 body {
   font-family: 'Magra', sans-serif;
   font-weight: 400;
@@ -19,28 +19,28 @@ body {
   color: #333;
 }
 
-/* line 81, ../../sass/style_cs.scss */
+/* line 82, ../../sass/style_cs.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 85, ../../sass/style_cs.scss */
+/* line 86, ../../sass/style_cs.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* line 90, ../../sass/style_cs.scss */
+/* line 91, ../../sass/style_cs.scss */
 h2 {
   font-size: 110%;
 }
 
-/* line 94, ../../sass/style_cs.scss */
+/* line 95, ../../sass/style_cs.scss */
 div#main-wrap {
   min-width: 280px;
 }
 
 /*================ETYKIETY przy u┼╝yciu bootstrap==================================*/
-/* line 99, ../../sass/style_cs.scss */
+/* line 100, ../../sass/style_cs.scss */
 .label {
   margin-right: 3px;
   font-weight: 400;
@@ -48,7 +48,7 @@ div#main-wrap {
 
 /*================koniec ETYKIETY ==================================*/
 /*================TOOLTIP przy u┼╝yciu jQueryUI==================================*/
-/* line 106, ../../sass/style_cs.scss */
+/* line 107, ../../sass/style_cs.scss */
 .ui-tooltip {
   background: rgba(238, 238, 238, 0.9);
   font-size: 0.8em;
@@ -57,18 +57,18 @@ div#main-wrap {
 /*================koniec TOOLTIP przy u┼╝yciu jQueryUI==================================*/
 /*================MIXINS - "domieszki"==================================*/
 /*================WYDARZENIA==================================*/
-/* line 126, ../../sass/style_cs.scss */
+/* line 127, ../../sass/style_cs.scss */
 .wyrozniki {
   margin: 5em 0 5em 0;
   text-align: center;
 }
 
-/* line 133, ../../sass/style_cs.scss */
+/* line 134, ../../sass/style_cs.scss */
 .carousel-inner img {
   margin: auto;
 }
 
-/* line 139, ../../sass/style_cs.scss */
+/* line 140, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik {
   overflow: hidden;
   *zoom: 1;
@@ -76,11 +76,9 @@ article.wydarzenie div.odnosnik {
   background-color: #eee;
   margin-top: 25px;
   border-top: 5px solid #ccc;
-  -webkit-transition: all 0.5s ease, -webkit-transform 0.5s ease;
-  transition: all 0.5s ease, transform 0.5s ease;
 }
 @media only screen and (min-width: 992px) {
-  /* line 139, ../../sass/style_cs.scss */
+  /* line 140, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik {
     border-left: 5px solid #ccc;
     border-top: none;
@@ -88,53 +86,53 @@ article.wydarzenie div.odnosnik {
     margin-top: 10px;
   }
 }
-/* line 177, ../../sass/style_cs.scss */
+/* line 178, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa {
   width: 100%;
   padding: 5px 10px 5px 10px;
   color: #333;
 }
 @media only screen and (min-width: 992px) {
-  /* line 177, ../../sass/style_cs.scss */
+  /* line 178, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.lewa {
     width: 435px;
     float: left;
   }
 }
-/* line 187, ../../sass/style_cs.scss */
+/* line 188, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa h2 {
   margin-top: 0;
   margin-bottom: 10px;
 }
-/* line 192, ../../sass/style_cs.scss */
+/* line 193, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa div.kategorie {
   padding: 0;
   margin-bottom: 10px;
 }
-/* line 197, ../../sass/style_cs.scss */
+/* line 198, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.lewa div.opis {
   font-size: 1em;
   line-height: 1.1em;
 }
-/* line 203, ../../sass/style_cs.scss */
+/* line 204, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.prawa {
   width: 100%;
   background-color: #ccc;
   float: right;
 }
 @media only screen and (min-width: 400px) {
-  /* line 203, ../../sass/style_cs.scss */
+  /* line 204, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.prawa {
     height: 150px;
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 203, ../../sass/style_cs.scss */
+  /* line 204, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.prawa {
     width: 405px;
   }
 }
-/* line 217, ../../sass/style_cs.scss */
+/* line 218, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin {
   margin-top: 5px;
   font-size: 0.9em;
@@ -142,35 +140,35 @@ article.wydarzenie div.odnosnik div.termin {
   color: #fff;
 }
 @media only screen and (min-width: 400px) {
-  /* line 217, ../../sass/style_cs.scss */
+  /* line 218, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin {
     margin-left: 160px;
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 217, ../../sass/style_cs.scss */
+  /* line 218, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin {
     margin-left: 10px;
     width: 240px;
     float: left;
   }
 }
-/* line 237, ../../sass/style_cs.scss */
+/* line 238, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin span.etykieta {
   display: block;
 }
-/* line 241, ../../sass/style_cs.scss */
+/* line 242, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin p.dzien, article.wydarzenie div.odnosnik div.termin p.godziny {
   font-size: 2.5em;
   margin-top: 10px;
   margin-bottom: 20px;
 }
-/* line 247, ../../sass/style_cs.scss */
+/* line 248, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin span.godziny {
   display: block;
   float: left;
 }
-/* line 252, ../../sass/style_cs.scss */
+/* line 253, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin span.minuty {
   font-size: 0.75em;
   margin-top: -0.25em;
@@ -178,25 +176,25 @@ article.wydarzenie div.odnosnik div.termin span.minuty {
   display: block;
   float: left;
 }
-/* line 261, ../../sass/style_cs.scss */
+/* line 262, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik img.thumb {
   float: left;
   width: 150px;
   height: 150px;
 }
 @media only screen and (max-width: 399px) {
-  /* line 261, ../../sass/style_cs.scss */
+  /* line 262, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik img.thumb {
     width: 80px;
     height: 80px;
     margin-right: 5px;
   }
 }
-/* line 274, ../../sass/style_cs.scss */
+/* line 275, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin-dzien p {
   margin: 0;
 }
-/* line 279, ../../sass/style_cs.scss */
+/* line 280, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosnik div.termin-godz {
   float: left;
   max-width: 120px;
@@ -204,81 +202,85 @@ article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosni
   width: 50%;
 }
 @media only screen and (max-width: 399px) {
-  /* line 279, ../../sass/style_cs.scss */
+  /* line 280, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosnik div.termin-godz {
     width: 77.5px;
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 279, ../../sass/style_cs.scss */
+  /* line 280, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosnik div.termin-godz {
     width: 25%;
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 279, ../../sass/style_cs.scss */
+  /* line 280, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-dzien, article.wydarzenie div.odnosnik div.termin-godz {
     width: 120px;
     height: 100px;
   }
 }
-/* line 302, ../../sass/style_cs.scss */
+/* line 303, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik div.termin-lokalizacja {
   text-align: left;
   float: right;
   width: 100%;
 }
 @media only screen and (max-width: 399px) {
-  /* line 302, ../../sass/style_cs.scss */
+  /* line 303, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-lokalizacja {
     text-align: center;
   }
 }
 @media only screen and (min-width: 400px) {
-  /* line 302, ../../sass/style_cs.scss */
+  /* line 303, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-lokalizacja {
     height: 100px;
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 302, ../../sass/style_cs.scss */
+  /* line 303, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik div.termin-lokalizacja {
     width: 240px;
     height: 50px;
     text-align: center;
   }
 }
-/* line 330, ../../sass/style_cs.scss */
+/* line 325, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik:hover {
   background: #d5d5d5;
   border-color: #ccc;
-  border-left: 1px solid;
-  border-right: 1px solid;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
   border-top: 5px solid #ccc;
 }
-/* line 335, ../../sass/style_cs.scss */
+/* line 330, ../../sass/style_cs.scss */
 article.wydarzenie div.odnosnik:hover h2.tytul {
   text-decoration: underline;
 }
 @media only screen and (min-width: 992px) {
-  /* line 330, ../../sass/style_cs.scss */
+  /* line 325, ../../sass/style_cs.scss */
   article.wydarzenie div.odnosnik:hover {
-    border-top: 1px solid;
-    border-bottom: 1px solid;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     border-left: 5px solid #ccc;
   }
 }
-/* line 350, ../../sass/style_cs.scss */
-article.wydarzenie div.odnosnik:hover:active {
-  background-color: #333;
+/* line 347, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik:active {
+  background-color: #aeaeae !important;
 }
-/* line 365, ../../sass/style_cs.scss */
+/* line 352, ../../sass/style_cs.scss */
+article.wydarzenie div.odnosnik:active div.prawa {
+  background-color: #aeaeae !important;
+}
+/* line 366, ../../sass/style_cs.scss */
 article.wydarzenie div.bilety {
   overflow: hidden;
   *zoom: 1;
   border-color: #ccc;
 }
-/* line 369, ../../sass/style_cs.scss */
+/* line 370, ../../sass/style_cs.scss */
 article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
   background-color: #eee;
   color: #333;
@@ -292,27 +294,27 @@ article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
   border-bottom-left-radius: 10px;
 }
 @media only screen and (min-width: 992px) {
-  /* line 369, ../../sass/style_cs.scss */
+  /* line 370, ../../sass/style_cs.scss */
   article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
     padding-top: 3px;
     padding-bottom: 3px;
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 369, ../../sass/style_cs.scss */
+  /* line 370, ../../sass/style_cs.scss */
   article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
     display: inline-block;
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 369, ../../sass/style_cs.scss */
+  /* line 370, ../../sass/style_cs.scss */
   article.wydarzenie div.bilety a, article.wydarzenie div.bilety span {
     border-left: 5px solid #ccc;
     border-top: none;
     border-color: inherit;
   }
 }
-/* line 401, ../../sass/style_cs.scss */
+/* line 402, ../../sass/style_cs.scss */
 article.wydarzenie div.bilety a.kup-bilet {
   background-color: #333;
   color: #fff;
@@ -321,14 +323,19 @@ article.wydarzenie div.bilety a.kup-bilet {
   text-align: center;
 }
 @media only screen and (min-width: 992px) {
-  /* line 401, ../../sass/style_cs.scss */
+  /* line 402, ../../sass/style_cs.scss */
   article.wydarzenie div.bilety a.kup-bilet {
     font-size: 1em;
   }
 }
-/* line 413, ../../sass/style_cs.scss */
+/* line 414, ../../sass/style_cs.scss */
 article.wydarzenie div.bilety a.kup-bilet:hover {
   text-decoration: underline;
+}
+/* line 419, ../../sass/style_cs.scss */
+article.wydarzenie div.bilety a.kup-bilet:active {
+  background-color: #fff;
+  color: #333;
 }
 
 /*================koniec WYDARZENIA==================================*/

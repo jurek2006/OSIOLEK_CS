@@ -19,7 +19,8 @@ $kolorTekstNakladany: #fff; //Teraz biały
 
 // Tło wydarzenia (na liście wydarzeń):
 $tloWydarzenia: #eee; //lekko szary
-$tloWydarzenia-hover: darken($tloWydarzenia, 10%); //tło wydarzenia po najechaniu
+$tloWydarzenia-hover: darken($tloWydarzenia, 10%); //tło wydarzenia po najechaniu (strona "kolorowa" nie)
+$tloWydarzenia-active: darken($tloWydarzenia, 25%); //tło wydarzenia po kliknięciu (strona "kolorowa" tak)
 
 // Standardowy kolor tła div.termin na liście wydarzeń (normalnie się nie wyświetla bo jest pobierany kolor na podstawie lokalizacji wydarzenia)
 $tloStandardDivTermin: #ccc;
@@ -320,12 +321,6 @@ article.wydarzenie{
 			}
 		}
 
-		a.czytajWiecej{
-
-		}
-
-		-webkit-transition: all 0.5s ease, -webkit-transform 0.5s ease; //TESTOWE
-    	transition: all 0.5s ease, transform 0.5s ease; //TESTOWE
 
     	&:hover{
 		//akcja hover dla div.odnosnik - najechanie na wpis wydarzenia na liście wydarzeń
@@ -336,26 +331,32 @@ article.wydarzenie{
 				text-decoration: underline; //Dodanie podkreślenia tytułu wydarzenia po najechaniu na wydarzenie
 			}
 			//standardowe zachowanie przy hoverze - dodanie prawego i lewego marginesu, górny bez zmian 
-			border-left: 1px solid;
-			border-right: 1px solid;
+			border-left: 1px solid $tloStandardDivTermin;
+			border-right: 1px solid $tloStandardDivTermin;
 			border-top: $wydarzenie-border solid $tloStandardDivTermin;
 
 			//zachowanie przy hoverze dla rozdzielczości >=md, dodanie górnego i dolnego marginesu, lewy bez zmian
 			@include MQ(md){
-				border-top: 1px solid;
-				border-bottom: 1px solid;
+				border-top: 1px solid $tloStandardDivTermin;
+				border-bottom: 1px solid $tloStandardDivTermin;
 				border-left: $wydarzenie-border solid $tloStandardDivTermin;
+			}
+
 		}
 
 		&:active{
 		// akcja active dla div.odnosnik - kliknięcie na wpis wydarzenia na liście wydarzeń
-			//box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75); //TESTOWE
-			background-color: $kolorTekstu; //TESTOWE
+
+			background-color: $tloWydarzenia-active !important; // kolor tła dla odnośnika wydarzenia przy kliknięciu
+
+			div.prawa{
+				background-color: $tloWydarzenia-active !important; // kolor tła dla odnośnika wydarzenia przy kliknięciu
+			}
 		}
 
-	}	
-
 }
+
+
 
 	
 
@@ -413,6 +414,12 @@ article.wydarzenie{
 			&:hover{
 			//obsługa hover dla a.kup-bilet - dodaje podkreślenie
 				text-decoration: underline;
+			}
+
+			&:active{
+			//obsługa active dla a.kup-bilet
+				background-color: $kolorTekstNakladany;
+				color: $tloKupBilet;
 			}
 		}
 
