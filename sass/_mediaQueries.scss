@@ -1,0 +1,82 @@
+/*================MEDIA QUERIES za pomocą sass==================================*/
+// zdefiniowanie punktów brzegowych - takich jak w bootstrap
+$xxs: 400px; //Dodatkowy punkt brzegowy - względem bootstrap
+$xs: 768px;
+$sm: 992px;
+$md: 1200px;
+
+// Mamy zatem zakresy, których możemy używać:
+// 		xxs <400px
+// 400px <= xs < 768px
+// 768px <= sm < 992px
+// 992px <= md < 1200px
+// 1200px < lg
+
+// Działa tak jak col w bootstrap, czyli jeśli zdefiniujemy np coś dla wielkości tylko xs, a dla większych nie
+// To dla tych większych też będzie działać
+
+
+@mixin MQ($screen){
+	@if $screen == lg{
+		@media only screen and (min-width: $md){ @content; }
+	}
+	@else if $screen == md{
+		@media only screen and (min-width: $sm){ @content; }
+	}
+	@else if $screen == sm{
+		@media only screen and (min-width: $xs){ @content; }
+	}
+	@else if $screen == xs{
+		@media only screen and (min-width: $xxs){ @content; }
+	}
+	@if $screen == xxs{
+		 @content;
+	}
+	
+}
+
+// Przykład użycia MQ:
+// ------------------------
+//tutaj jakiś standardowy styl, dla rozdzielczości mniejszej niż $xxs
+
+// @include MQ(xs){
+//	// styl dla rodzielczości większej niż $xxs
+// 	background-color: blue;
+// }
+
+// @include MQ(sm){
+//	// styl dla rodzielczości większej niż $xs
+// 	background-color: red;
+// }
+
+// @include MQ(md){
+//	// styl dla rodzielczości większej niż $sm
+// 	background-color: green;
+// }
+
+// @include MQ(lg){
+//	// styl dla rodzielczości większej niż $md
+// 	background-color: yellow;
+// }
+
+// MQonly działa jak MQ ale tylko dla zadanej wielkości ekraniu (a nie także dla większych)
+@mixin MQonly($screen){
+	@if $screen == lg{
+		@media only screen and (min-width: $md) { @content; }
+	}
+	@else if $screen == md{
+		@media only screen and (min-width: $sm) and (max-width: $md - 1){ @content; }
+	}
+	@else if $screen == sm{
+		@media only screen and (min-width: $xs) and (max-width: $sm - 1){ @content; }
+	}
+	@else if $screen == xs{
+		@media only screen and (min-width: $xxs) and (max-width: $xs - 1){ @content; }
+	}
+	@if $screen == xxs{
+		@media only screen and (max-width: $xxs - 1){ @content; }
+	}
+
+}
+
+/*================koniec MEDIA QUERIES za pomocą sass===========================*/

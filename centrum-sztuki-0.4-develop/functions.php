@@ -67,6 +67,10 @@
 		//dołączenie skryptu bootstrap'a
 		wp_register_script('bootstrap_js', get_stylesheet_directory_uri().'/js/bootstrap.js', array( 'jquery' ));
 		wp_enqueue_script('bootstrap_js');
+
+		// dołączanie mojego podstawowego skryptu dla strony
+		wp_register_script('osiolek_cs', get_stylesheet_directory_uri().'/js/osiolek_cs.js', array( 'jquery' ));
+		wp_enqueue_script('osiolek_cs');
 	}  
 	add_action( 'wp_enqueue_scripts', 'add_my_script' );
 
