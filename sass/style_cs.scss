@@ -9,6 +9,7 @@
 
 // WCZYTANIE INNYCH PLIKÓW SCSS
 @import "mediaQueries"; //plik _mediaQueries.scss zawierający MQ i MQonly
+@import "footer"; //plik ze stylami stopki
 
 // KOLORY:
 // Kolor tekstu - podstawowy
@@ -92,7 +93,7 @@ h2{
 	font-size: 110%;
 }
 
-div#main-wrap{
+div#main-wrap, footer{
 	min-width: $min-width; //ustawienie minimalnej szerokości strony, poniżej której zawartość już się nie skaluje
 }
 

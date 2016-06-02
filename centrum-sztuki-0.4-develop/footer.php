@@ -4,7 +4,7 @@
     
     <!-- STOPKA -->
     
-    <div id="footer-wrap" class="container">
+    <div id="footer-wrap" class="col-xs-12 container">
     	<footer class="clearfix">
                 <?php  
 					//dolne menu nawigacyjne
