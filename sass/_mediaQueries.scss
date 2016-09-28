@@ -40,22 +40,22 @@ $md: 1200px;
 //tutaj jakiś standardowy styl, dla rozdzielczości mniejszej niż $xxs
 
 // @include MQ(xs){
-//	// styl dla rodzielczości większej niż $xxs
+//	// styl dla rodzielczości większej niż $xxs (400px)
 // 	background-color: blue;
 // }
 
 // @include MQ(sm){
-//	// styl dla rodzielczości większej niż $xs
+//	// styl dla rodzielczości większej niż $xs (768px)
 // 	background-color: red;
 // }
 
 // @include MQ(md){
-//	// styl dla rodzielczości większej niż $sm
+//	// styl dla rodzielczości większej niż $sm (992px)
 // 	background-color: green;
 // }
 
 // @include MQ(lg){
-//	// styl dla rodzielczości większej niż $md
+//	// styl dla rodzielczości większej niż $md (1200px)
 // 	background-color: yellow;
 // }
 
@@ -78,5 +78,6 @@ $md: 1200px;
 	}
 
 }
+
 
 /*================koniec MEDIA QUERIES za pomocą sass===========================*/
